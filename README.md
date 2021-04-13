@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @404Vector
+- 👋 Hi, I’m @HyeongSeok Kim
 - 👀 I’m interested in Image Processing(MIL, OpenCV) and .NET.
 - 🌱 I’m currently learning ML, DataBase
 - 💞️ I’m looking to collaborate on WPF Controls
