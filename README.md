@@ -3,14 +3,42 @@
 
 # Introduce.
 
-안녕하세요?  AI Computer Vision Engineer, 김형석입니다.
+안녕하세요? ML & MLOps Engineer, 김형석입니다.
 
 # Skill.
 
-- Programing Language: C#, C++, Python
-- AI : Pytorch
-- MLOps : MLFlow, WandB
-- Image Processing : OpenCV, MIL, Cognex
-- Front-End : WPF, Streamlit
-- Back-End : Fast-API
-- etc : Docker, Git
+**Programing Language**
+
+- Python
+- C#
+- C++
+
+**ML**
+
+- PyTorch
+- TensorRT, Tirton, ONNX-Runtime
+- AWS Inferentia, Furiosa Warboy
+
+**Multi-Processing**
+
+- AsyncIO
+- Ray
+- gRPC
+
+**MLOps, CI/CD**
+
+- MLFlow
+- Docker & Docker-Compose
+- Github & Github Action
+
+**Computer Vision**
+
+- OpenCV
+- MIL
+- Cognex
+
+**ect.** 
+
+- Poetry, pipenv, pyenv
+- FastAPI
+- WPF, Streamlit
