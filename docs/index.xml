@@ -5,6 +5,66 @@
       <link>https://quartz.jzhao.xyz</link>
       <description>Last 10 notes on HyeongSeok Kim&#039;s Vault</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
-      
+      <item>
+    <title>초보 운전자를 위한 안전 주행 보조 시스템</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</guid>
+    <description> GitHub - 404Vector/App.DrivingSafetyAssistanceSystem: Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 - GitHub - 404Vector/App.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>최대가능도 추정법(MLE, Maximum likelihood estimation)</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84-%EC%B6%94%EC%A0%95%EB%B2%95(MLE,-Maximum-likelihood-estimation)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84-%EC%B6%94%EC%A0%95%EB%B2%95(MLE,-Maximum-likelihood-estimation)</guid>
+    <description> 참조 최대가능도 추정법(MLE, Maximum likelihood estimation) 참조 Week 1 최대가능도 추정법(MLE, Maximum likelihood estimation) 최대가능도 추정법(MLE, Maximum likelihood estimation)은 모수 theta가 주어졌을 때 데이터 X에 대한 가능도 함수(likelihood function)의 최대값을 찾는 것을 말한다.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>표본(sample)</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8(sample)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8(sample)</guid>
+    <description> 참조 표본(sample) 참조 namu.wiki/w/통계학?from=모집단#s-2 Week 1 표본(sample) 모 집단에서 일부만 조사한 것 .</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>표본분산(sample variance)</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%EB%B6%84%EC%82%B0(sample-variance)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%EB%B6%84%EC%82%B0(sample-variance)</guid>
+    <description> 참조 표본분산(sample variance) 참조 Week 1 Week 1 표본분산(sample variance) 표본(sample)의 분산 관측값에서 표본 평균을 빼고 제곱한 값을 모두 더한 것을 n-1로 나눈 값 s^2 ={1 \over {N-1}}{\sum_{i=1}^{N}(X_i-\bar X)}.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>표본편차(sample standard deviation )</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8E%B8%EC%B0%A8(sample-standard-deviation-)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8E%B8%EC%B0%A8(sample-standard-deviation-)</guid>
+    <description> 참조 표본편차(sample standard deviation ) 참조 ko.wikipedia.org/wiki/표준_편차 Week 1 표본편차(sample standard deviation ) 표본의 표준 편차 s =\sqrt{{1 \over {N-1}}{\sum_{i=1}^{N}(X_i-\bar X)}}.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>표본평균(Sample mean)</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0(Sample-mean)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0(Sample-mean)</guid>
+    <description> 참조 표본평균(Sample mean) 참조 en.wikipedia.org/wiki/Sample_mean_and_covariance Week 1 표본평균(Sample mean) 표본 평균은 모집단에서 가져온 표본의 평균 값 X \in \Omega \\ \bar{X} = {1 \over N}{\sum_{i=1}^{N}X}.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>하이퍼볼릭 탄젠트(Hyperbolic Tangent)</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%95%98%EC%9D%B4%ED%8D%BC%EB%B3%BC%EB%A6%AD-%ED%83%84%EC%A0%A0%ED%8A%B8(Hyperbolic-Tangent)</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%ED%95%98%EC%9D%B4%ED%8D%BC%EB%B3%BC%EB%A6%AD-%ED%83%84%EC%A0%A0%ED%8A%B8(Hyperbolic-Tangent)</guid>
+    <description> 참조 하이퍼볼릭 탄젠트(Hyperbolic Tangent) 참조 taewan.kim/post/tanh_diff/ Week 1 하이퍼볼릭 탄젠트(Hyperbolic Tangent) Sigmoid의 대체제로 사용될 수 있는 활성화 함수 출력 범위는 -1에서 1사이 출력 범위가 더 넓고 경사면이 큰 범위가 더 크기 때문에 더 빠르게 수렴하여 학습 Sigmoid의 치명적인 단점인 Vanishing gradient problem 문제를 그대로 갖고 있음 tanh(x)={{e^{x}-e^{-x}} \over {e^{x}+e^{-x}}}.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>About</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/HyeongSeok-Kim%E2%80%99s-Notion/About</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/HyeongSeok-Kim%E2%80%99s-Notion/About</guid>
+    <description>Contact. Email. tiryul@gmail.com Introduce. 안녕하세요, 저는 2년 차 머신러닝 엔지니어이자 5년 차 소프트웨어 엔지니어인 김형석입니다.</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>HyeongSeok Kim’s Notion</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/HyeongSeok-Kim%E2%80%99s-Notion/HyeongSeok-Kim%E2%80%99s-Notion</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/HyeongSeok-Kim%E2%80%99s-Notion/HyeongSeok-Kim%E2%80%99s-Notion</guid>
+    <description>DB.Blog.Post 이름TypeLast EditTagTags담당자상태생성일LayoutLM- Pre-training of Text and Layout for Document Image UnderstandingProject2024년 10월 25일 오전 10:44Document Classification, Information ExtractionML &amp; MLOpsKim HyeongSeok진행 중2024년 6월 28일 오전 11:03OpenEXR-PythonProject2024년 10월 25일 오전 10:44Python Pack...</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item><item>
+    <title>기대값</title>
+    <link>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EA%B8%B0%EB%8C%80%EA%B0%92</link>
+    <guid>https://quartz.jzhao.xyz/vault/Notion/DB/DB-Blog-Post/%EA%B8%B0%EB%8C%80%EA%B0%92</guid>
+    <description> 참조 기대값 참조 Week 1 기대값 데이터를 대표하는 통계량 확률분포를 통해 다른 통계적 범함수를 계산하는데 사용 분산, 첨도, 공분산 등 여러 통계량 계산에 사용 .</description>
+    <pubDate>Mon, 16 Jun 2025 10:23:10 GMT</pubDate>
+  </item>
     </channel>
   </rss>
