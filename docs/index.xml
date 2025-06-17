@@ -6,65 +6,65 @@
       <description>Last 10 notes on HyeongSeok Kim&#039;s Vault</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>초보 운전자를 위한 안전 주행 보조 시스템</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</guid>
-    <description> GitHub - 404Vector/App.DrivingSafetyAssistanceSystem: Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 - GitHub - 404Vector/App.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>제 2차 커피드백 - 서로의 글 피드백 하기</title>
+    <link>https://quartz.jzhao.xyz/Personal/%EA%B8%80%EB%98%90-8%EA%B8%B0/%EC%A0%9C-2%EC%B0%A8-%EC%BB%A4%ED%94%BC%EB%93%9C%EB%B0%B1---%EC%84%9C%EB%A1%9C%EC%9D%98-%EA%B8%80-%ED%94%BC%EB%93%9C%EB%B0%B1-%ED%95%98%EA%B8%B0</link>
+    <guid>https://quartz.jzhao.xyz/Personal/%EA%B8%80%EB%98%90-8%EA%B8%B0/%EC%A0%9C-2%EC%B0%A8-%EC%BB%A4%ED%94%BC%EB%93%9C%EB%B0%B1---%EC%84%9C%EB%A1%9C%EC%9D%98-%EA%B8%80-%ED%94%BC%EB%93%9C%EB%B0%B1-%ED%95%98%EA%B8%B0</guid>
+    <description> 글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화...</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>최대가능도 추정법(MLE, Maximum likelihood estimation)</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84-%EC%B6%94%EC%A0%95%EB%B2%95(MLE,-Maximum-likelihood-estimation)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EC%B5%9C%EB%8C%80%EA%B0%80%EB%8A%A5%EB%8F%84-%EC%B6%94%EC%A0%95%EB%B2%95(MLE,-Maximum-likelihood-estimation)</guid>
-    <description> 참조 최대가능도 추정법(MLE, Maximum likelihood estimation) 참조 Week 1 최대가능도 추정법(MLE, Maximum likelihood estimation) 최대가능도 추정법(MLE, Maximum likelihood estimation)은 모수 theta가 주어졌을 때 데이터 X에 대한 가능도 함수(likelihood function)의 최대값을 찾는 것을 말한다.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>DACON 예술작품 화가 분류 AI 경진대회</title>
+    <link>https://quartz.jzhao.xyz/Project/DACON-%EC%98%88%EC%88%A0%EC%9E%91%ED%92%88-%ED%99%94%EA%B0%80-%EB%B6%84%EB%A5%98-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C</link>
+    <guid>https://quartz.jzhao.xyz/Project/DACON-%EC%98%88%EC%88%A0%EC%9E%91%ED%92%88-%ED%99%94%EA%B0%80-%EB%B6%84%EB%A5%98-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C</guid>
+    <description> GitHub - 404Vector/Competition.DACON.ArtWorksPainterClassification: Dacon 화가 이미지 분류 Dacon 예술 작품 화가 분류 AI 경진대회 model 폴더 .</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>표본(sample)</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8(sample)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8(sample)</guid>
-    <description> 참조 표본(sample) 참조 namu.wiki/w/통계학?from=모집단#s-2 Week 1 표본(sample) 모 집단에서 일부만 조사한 것 .</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>NAVER Connect 마스크 착용 상태 분류</title>
+    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98</link>
+    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98</guid>
+    <description> GitHub - 404Vector/Competition.AIStages.MaskWearingStatusClassification: 카메라로 촬영한 사람 얼굴 이미지의 마스크 착용 여부, 성별, 나이를 판단하는 Task AI Stages / Naver Boost Camp AI Tech 4th COVID-19의 확산으로 우리나라는 물론 전 세계 사람들은 경제적, 생산적인 활동에 많은 제약을 가지게 되었습니다.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>표본분산(sample variance)</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%EB%B6%84%EC%82%B0(sample-variance)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%EB%B6%84%EC%82%B0(sample-variance)</guid>
-    <description> 참조 표본분산(sample variance) 참조 Week 1 Week 1 표본분산(sample variance) 표본(sample)의 분산 관측값에서 표본 평균을 빼고 제곱한 값을 모두 더한 것을 n-1로 나눈 값 s^2 ={1 \over {N-1}}{\sum_{i=1}^{N}(X_i-\bar X)}.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>NAVER Connect 재활용 품목 분류를 위한 Object Detection</title>
+    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection</link>
+    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection</guid>
+    <description> GitHub - 404Vector/Competition.AIStages.TrashObjectDetection: 사진에서 Object Detection을 사용하여 쓰레기 객체를 검출하고 분류하는 Task 환경 구성에 필요한 package 설치 mmcv 설치(pipenv로 직접설치 안됨) pipenv install pipenv run mim install mmcv-full [train] python train.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>표본편차(sample standard deviation )</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8E%B8%EC%B0%A8(sample-standard-deviation-)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8E%B8%EC%B0%A8(sample-standard-deviation-)</guid>
-    <description> 참조 표본편차(sample standard deviation ) 참조 ko.wikipedia.org/wiki/표준_편차 Week 1 표본편차(sample standard deviation ) 표본의 표준 편차 s =\sqrt{{1 \over {N-1}}{\sum_{i=1}^{N}(X_i-\bar X)}}.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>NAVER Connect 재활용 품목 분류를 위한 Semantic Segmentation</title>
+    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation</link>
+    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation</guid>
+    <description> Info github.com/404Vector/Competition.AIStages.TrashSemanticSegmentation Team Member 요약 My Contribute Task Evaluation Metric Data 개요 본론 EDA Test 결론 ==이 대회는 비공개 대회이며, Bootcamp AI Tech 4기 교육의 일환으로 진행되었습니다.== Team Member 김형석 - [github.com/404Vector] 이동훈 - [github.com/teedihuni] 전지용 - [github.com/Jiyon...</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>표본평균(Sample mean)</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0(Sample-mean)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0(Sample-mean)</guid>
-    <description> 참조 표본평균(Sample mean) 참조 en.wikipedia.org/wiki/Sample_mean_and_covariance Week 1 표본평균(Sample mean) 표본 평균은 모집단에서 가져온 표본의 평균 값 X \in \Omega \\ \bar{X} = {1 \over N}{\sum_{i=1}^{N}X}.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>NAVER Connect 학습 데이터 추가 및 수정을 통한 이미지 속 글자 검출 성능 개선</title>
+    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%86%8D-%EA%B8%80%EC%9E%90-%EA%B2%80%EC%B6%9C-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0</link>
+    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%86%8D-%EA%B8%80%EC%9E%90-%EA%B2%80%EC%B6%9C-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0</guid>
+    <description> GitHub - 404Vector/Competition.AIStages.WordAreaDetection: 이미지에서 Object Detection을 사용하여 글자 영역을 검출하는 Task You can’t perform that action at this time.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>하이퍼볼릭 탄젠트(Hyperbolic Tangent)</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%95%98%EC%9D%B4%ED%8D%BC%EB%B3%BC%EB%A6%AD-%ED%83%84%EC%A0%A0%ED%8A%B8(Hyperbolic-Tangent)</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%ED%95%98%EC%9D%B4%ED%8D%BC%EB%B3%BC%EB%A6%AD-%ED%83%84%EC%A0%A0%ED%8A%B8(Hyperbolic-Tangent)</guid>
-    <description> 참조 하이퍼볼릭 탄젠트(Hyperbolic Tangent) 참조 taewan.kim/post/tanh_diff/ Week 1 하이퍼볼릭 탄젠트(Hyperbolic Tangent) Sigmoid의 대체제로 사용될 수 있는 활성화 함수 출력 범위는 -1에서 1사이 출력 범위가 더 넓고 경사면이 큰 범위가 더 크기 때문에 더 빠르게 수렴하여 학습 Sigmoid의 치명적인 단점인 Vanishing gradient problem 문제를 그대로 갖고 있음 tanh(x)={{e^{x}-e^{-x}} \over {e^{x}+e^{-x}}}.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>OpenEXR-Python</title>
+    <link>https://quartz.jzhao.xyz/Project/OpenEXR-Python</link>
+    <guid>https://quartz.jzhao.xyz/Project/OpenEXR-Python</guid>
+    <description>github.com/404Vector/OpenEXR-Python 개요 OpenEXR-Python은 Python 라이브러리로, C++ 기반의 OpenEXR 라이브러리에 대한 파이썬 바인딩을 제공합니다.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>HyeongSeok Kim’s Notion</title>
-    <link>https://quartz.jzhao.xyz/Notion/HyeongSeok-Kim%E2%80%99s-Notion/HyeongSeok-Kim%E2%80%99s-Notion</link>
-    <guid>https://quartz.jzhao.xyz/Notion/HyeongSeok-Kim%E2%80%99s-Notion/HyeongSeok-Kim%E2%80%99s-Notion</guid>
-    <description>DB.Blog.Post 이름TypeLast EditTagTags담당자상태생성일LayoutLM- Pre-training of Text and Layout for Document Image UnderstandingProject2024년 10월 25일 오전 10:44Document Classification, Information ExtractionML &amp; MLOpsKim HyeongSeok진행 중2024년 6월 28일 오전 11:03OpenEXR-PythonProject2024년 10월 25일 오전 10:44Python Pack...</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>Photometric Stereo를 사용한 형상추출 알고리즘 개발</title>
+    <link>https://quartz.jzhao.xyz/Project/Photometric-Stereo%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%98%95%EC%83%81%EC%B6%94%EC%B6%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%B0%9C</link>
+    <guid>https://quartz.jzhao.xyz/Project/Photometric-Stereo%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%98%95%EC%83%81%EC%B6%94%EC%B6%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%B0%9C</guid>
+    <description> 개요 현상 / 이슈 문제 정의 해결방법 Photometric Stereo 알고리즘 구현 광학계의 구성 결과 알고리즘 구현 카메라 모듈과의 처리 결과 비교 Github 링크 기존에 진행했던 프로젝트를 완전히 잊어버리기 전에 기록으로 남기고 싶어서 글을 쓰게 되었습니다.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>about</title>
-    <link>https://quartz.jzhao.xyz/about</link>
-    <guid>https://quartz.jzhao.xyz/about</guid>
-    <description>Contact. Email. tiryul@gmail.com Introduce. 안녕하세요, 저는 2년 차 머신러닝 엔지니어이자 5년 차 소프트웨어 엔지니어인 김형석입니다.</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>Text Region 검출기</title>
+    <link>https://quartz.jzhao.xyz/Project/Text-Region-%EA%B2%80%EC%B6%9C%EA%B8%B0</link>
+    <guid>https://quartz.jzhao.xyz/Project/Text-Region-%EA%B2%80%EC%B6%9C%EA%B8%B0</guid>
+    <description> GitHub - 404Vector/App.Streamlit-FastAPI.Text.Detector: OCR Task 중 하나인 Text Detection을 수행하는 Web Service 저장소 입니다.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item><item>
-    <title>기대값</title>
-    <link>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EA%B8%B0%EB%8C%80%EA%B0%92</link>
-    <guid>https://quartz.jzhao.xyz/Notion/DB/DB-Blog-Post/%EA%B8%B0%EB%8C%80%EA%B0%92</guid>
-    <description> 참조 기대값 참조 Week 1 기대값 데이터를 대표하는 통계량 확률분포를 통해 다른 통계적 범함수를 계산하는데 사용 분산, 첨도, 공분산 등 여러 통계량 계산에 사용 .</description>
-    <pubDate>Tue, 17 Jun 2025 02:24:26 GMT</pubDate>
+    <title>Video2Video</title>
+    <link>https://quartz.jzhao.xyz/Project/Video2Video</link>
+    <guid>https://quartz.jzhao.xyz/Project/Video2Video</guid>
+    <description>github.com/404Vector/Video2Video 개요 Video2Video는 FFMPeg와 FFMPeg-Python을 사용하여 비디오를 비디오로 변환하는 라이브러리입니다.</description>
+    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
   </item>
     </channel>
   </rss>

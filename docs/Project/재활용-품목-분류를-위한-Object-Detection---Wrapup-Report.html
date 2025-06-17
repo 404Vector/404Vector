@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>재활용 품목 분류를 위한 Object Detection - Wrapup Report</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="HyeongSeok Kim's Vault"/><meta property="og:title" content="재활용 품목 분류를 위한 Object Detection - Wrapup Report"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="재활용 품목 분류를 위한 Object Detection - Wrapup Report"/><meta name="twitter:description" content="프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 방식 2. 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 분석 2. 모델 탐색 3. Image Size 4."/><meta property="og:description" content="프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 방식 2. 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 분석 2. 모델 탐색 3. Image Size 4."/><meta property="og:image:alt" content="프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 방식 2. 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 분석 2. 모델 탐색 3. Image Size 4."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 방식 2. 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 분석 2. 모델 탐색 3. Image Size 4."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvdmF1bHQuaHllb25nc2Vvay1raW0vdmF1bHQuaHllb25nc2Vvay1raW0vcXVhcnR6L3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwYWRkaW5nOiAycmVtO1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Project/재활용-품목-분류를-위한-Object-Detection---Wrapup-Report"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">HyeongSeok Kim's Vault</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="explorer-content" aria-expanded="false"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../Project/">Project</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>재활용 품목 분류를 위한 Object Detection   Wrapup Report</a></div></nav><h1 class="article-title">재활용 품목 분류를 위한 Object Detection - Wrapup Report</h1><p show-comma="true" class="content-meta"><time datetime="2025-06-17T03:24:24.690Z">Jun 17, 2025</time><span>15 min read</span></p></div></div><article class="popover-hint"><ul>
+<li><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94" class="internal alias">프로젝트 개요</a>
+<ul>
+<li><a href="#%EC%84%A4%EB%AA%85" class="internal alias">설명</a></li>
+<li><a href="#%ED%8F%89%EA%B0%80" class="internal alias">평가</a></li>
+</ul>
+</li>
+<li><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8C%80-%EA%B5%AC%EC%84%B1-%EB%B0%8F-%EC%97%AD%ED%95%A0" class="internal alias">프로젝트 팀 구성 및 역할</a></li>
+<li><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%88%98%ED%96%89-%EC%A0%88%EC%B0%A8-%EB%B0%8F-%EB%B0%A9%EB%B2%95" class="internal alias">프로젝트 수행 절차 및 방법</a>
+<ul>
+<li><a href="#1-%ED%98%91%EC%97%85-%EB%B0%A9%EC%8B%9D" class="internal alias">1. 협업 방식</a></li>
+<li><a href="#2-%EC%A0%91%EA%B7%BC-%EC%A0%84%EB%9E%B5" class="internal alias">2. 접근 전략</a></li>
+<li><a href="#3-%EC%88%98%ED%96%89-%EA%B3%BC%EC%A0%95" class="internal alias">3. 수행 과정</a></li>
+</ul>
+</li>
+<li><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%88%98%ED%96%89-%EA%B2%B0%EA%B3%BC" class="internal alias">프로젝트 수행 결과</a>
+<ul>
+<li><a href="#1-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D" class="internal alias">1. 데이터 분석</a></li>
+<li><a href="#2-%EB%AA%A8%EB%8D%B8-%ED%83%90%EC%83%89" class="internal alias">2. 모델 탐색</a></li>
+<li><a href="#3-image-size" class="internal alias">3. Image Size</a></li>
+<li><a href="#4-overlapping-object-detection-strategy" class="internal alias">4. Overlapping Object Detection Strategy</a></li>
+<li><a href="#5-augmentation" class="internal alias">5. Augmentation</a></li>
+<li><a href="#6-model-ensemble" class="internal alias">6. Model Ensemble</a></li>
+<li><a href="#7-%EB%A6%AC%EB%8D%94%EB%B3%B4%EB%93%9C-%EC%A0%9C%EC%B6%9C-%ED%8F%89%EA%B0%80-%EC%B5%9C%EC%A2%85" class="internal alias">7. 리더보드 제출 평가 (최종)</a></li>
+</ul>
+</li>
+<li><a href="#%EC%9E%90%EC%B2%B4-%ED%8F%89%EA%B0%80-%EC%9D%98%EA%B2%AC" class="internal alias">자체 평가 의견</a>
+<ul>
+<li><a href="#1-%EA%B2%B0%EA%B3%BC-%EB%B6%84%EC%84%9D" class="internal alias">1. 결과 분석</a></li>
+<li><a href="#2-%ED%9A%8C%EA%B3%A0-%EB%B0%8F-%ED%96%A5%ED%9B%84-%EA%B0%9C%EC%84%A0%EC%A0%90" class="internal alias">2. 회고 및 향후 개선점</a></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="프로젝트-개요">프로젝트 개요<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#프로젝트-개요" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="설명">설명<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#설명" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>바야흐로 대량 생산, 대량 소비의 시대. 우리는 많은 물건이 대량으로 생산되고, 소비되는 시대를 살고 있습니다. 하지만 이러한 문화는 ‘쓰레기 대란’, ‘매립지 부족’과 같은 여러 사회 문제를 낳고 있습니다.</li>
+<li>분리수거는 이러한 환경 부담을 줄일 수 있는 방법 중 하나입니다. 잘 분리배출 된 쓰레기는 자원으로서 가치를 인정받아 재활용되지만, 잘못 분리배출 되면 그대로 폐기물로 분류되어 매립 또는 소각되기 때문입니다.</li>
+<li>따라서 우리는 사진에서 쓰레기를 Detection 하는 모델을 만들어 이러한 문제점을 해결해보고자 합니다. 문제 해결을 위한 데이터셋으로는 일반 쓰레기, 플라스틱, 종이, 유리 등 10 종류의 쓰레기가 찍힌 사진 데이터셋이 제공됩니다.</li>
+<li>여러분에 의해 만들어진 우수한 성능의 모델은 쓰레기장에 설치되어 정확한 분리수거를 돕거나, 어린아이들의 분리수거 교육 등에 사용될 수 있을 것입니다. 부디 지구를 위기로부터 구해주세요! 🌎</li>
+</ul>
+<h3 id="평가">평가<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#평가" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Test set의 mAP50으로 평가</li>
+<li>mAP</li>
+</ul>
+<p><img src="../resources/Untitled-73.png" width="auto" height="auto" alt="Untitled 73.png"/></p>
+<p><img src="../resources/Untitled-1-54.png" width="auto" height="auto" alt="Untitled 1 54.png"/></p>
+<p><img src="../resources/Untitled-2-38.png" width="auto" height="auto" alt="Untitled 2 38.png"/></p>
+<hr/>
+<h2 id="프로젝트-팀-구성-및-역할">프로젝트 팀 구성 및 역할<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#프로젝트-팀-구성-및-역할" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>T4063 김형석
+<ul>
+<li>Ensemble, EDA, SSD 훈련 및 평가, 조건부 Annoation 삭제 기능, Submission 생성 자동화, Confusion Matrix 생성 자동화</li>
+</ul>
+</li>
+<li>T4148 이동훈
+<ul>
+<li>EDA, class relabeling, retina model 다양하게 실험.</li>
+</ul>
+</li>
+<li>T4190 전지용
+<ul>
+<li>EDA, Model 탐색, Small Object 탐지 전략, Overlapping Objcet 탐지 전략</li>
+</ul>
+</li>
+<li>T4199 정원국
+<ul>
+<li>EDA, Loss, Faster RCNN, WandB, Data split, Heavy Augmentation, Mosiac Augmentation, K-fold</li>
+</ul>
+</li>
+<li>T4226 한상준
+<ul>
+<li>Train 셋 분석 툴 개발, Model 탐색 (Deformable DETR with R50, Faster-RCNN with Swin-S, RetinaNet with Swin-T)</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="프로젝트-수행-절차-및-방법">프로젝트 수행 절차 및 방법<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#프로젝트-수행-절차-및-방법" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-협업-방식">1. 협업 방식<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-협업-방식" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>Github 활용</p>
+<ul>
+<li>
+<p>Custom gitlab-flow 적용</p>
+<ul>
+<li>Master 브랜치 / Develop 브랜치를 기본으로 하고, 각자 실험이 필요한 경우는 Feat/실험명 또는 EDA/분석명 등과 같은 서브 브랜치를 생성하는 방식으로 Git 충돌을 회피하고자 하였다. 실제 협업중에 Merge 에 필요한 Overhead 는 발생하지 않았고, 팀원 각자의 Learning curve 도 높지 않아 빠르게 적응할 수 있었다.</li>
+</ul>
+<p><img src="../resources/GitLab-like_Flow.png" width="auto" height="auto" alt/></p>
+<p><img src="../resources/Screenshot_2022-12-05_at_3.15.51_AM.png" width="auto" height="auto" alt/></p>
+</li>
+</ul>
+</li>
+<li>
+<p>WandB 실험 관리</p>
+<ul>
+<li>
+<p>MMDetection을 이용한 Object detection 결과를 한 곳에서 취합하여 성능을 비교하기 위하여 WandB 를 사용하였고, 모델간의 특성을 비교하거나 성능을 비교하는데 큰 도움이 되었다.</p>
+</li>
+</ul>
+<p><img src="../resources/Screenshot_2022-12-05_at_3.17.56_AM.png" width="auto" height="auto" alt/></p>
+<p><img src="../resources/Screenshot_2022-12-05_at_3.19.13_AM.png" width="auto" height="auto" alt/></p>
+</li>
+</ul>
+<h3 id="2-접근-전략">2. 접근 전략<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-접근-전략" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>EDA 전략 → 모델 탐색 전략 → 앙상블 전략</p>
+<h3 id="3-수행-과정">3. 수행 과정<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-수행-과정" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>이름</th><th>날짜</th><th>태그</th></tr></thead><tbody><tr><td><a href="../Object-Detection-개인-학습" class="internal alias" data-slug="Object-Detection-개인-학습">Object Detection 개인 학습</a></td><td>2022년 11월 14일 → 2022년 11월 21일</td><td></td></tr><tr><td><a href="../서버-설정" class="internal alias" data-slug="서버-설정">서버 설정</a></td><td>2022년 11월 17일 → 2022년 11월 21일</td><td></td></tr><tr><td><a href="../WandB-설정" class="internal alias" data-slug="WandB-설정">WandB 설정</a></td><td>2022년 11월 20일 → 2022년 11월 22일</td><td></td></tr><tr><td><a href="../EDA-및-시각화" class="internal alias" data-slug="EDA-및-시각화">EDA 및 시각화</a></td><td>2022년 11월 21일 → 2022년 11월 28일</td><td></td></tr><tr><td><a href="../모델-탐색" class="internal alias" data-slug="모델-탐색">모델 탐색</a></td><td>2022년 11월 22일 → 2022년 11월 30일</td><td></td></tr><tr><td><a href="../개별-실험-진행" class="internal alias" data-slug="개별-실험-진행">개별 실험 진행</a></td><td>2022년 11월 23일 → 2022년 12월 1일</td><td></td></tr><tr><td><a href="../앙상블" class="internal alias" data-slug="앙상블">앙상블</a></td><td>2022년 11월 30일 → 2022년 12월 1일</td><td></td></tr></tbody></table></div>
+<hr/>
+<h2 id="프로젝트-수행-결과">프로젝트 수행 결과<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#프로젝트-수행-결과" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-데이터-분석">1. 데이터 분석<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-데이터-분석" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>Raw Image Size Analysis</p>
+<ul>
+<li>
+<p>Train Dataset</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th><strong>width</strong></th><th><strong>height</strong></th><th><strong>license</strong></th><th><strong>id</strong></th><th><strong>width_real</strong></th><th><strong>height_real</strong></th></tr></thead><tbody><tr><td>count</td><td>4883.0</td><td>4883.0</td><td>4883.0</td><td>4883.000000</td><td>4883.0</td><td>4883.0</td></tr><tr><td>mean</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>2441.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>std</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1409.745012</td><td>0.0</td><td>0.0</td></tr><tr><td>min</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>0.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>25%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>1220.500000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>50%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>2441.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>75%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>3661.500000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>max</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>4882.000000</td><td>1024.0</td><td>1024.0</td></tr></tbody></table></div>
+</li>
+<li>
+<p>Test Dataset</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th><strong>width</strong></th><th><strong>height</strong></th><th><strong>license</strong></th><th><strong>id</strong></th><th><strong>width_real</strong></th><th><strong>height_real</strong></th></tr></thead><tbody><tr><td>count</td><td>4871.0</td><td>4871.0</td><td>4871.0</td><td>4871.000000</td><td>4871.0</td><td>4871.0</td></tr><tr><td>mean</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>2435.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>std</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1406.280911</td><td>0.0</td><td>0.0</td></tr><tr><td>min</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>0.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>25%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>1217.500000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>50%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>2435.000000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>75%</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>3652.500000</td><td>1024.0</td><td>1024.0</td></tr><tr><td>max</td><td>1024.0</td><td>1024.0</td><td>0.0</td><td>4870.000000</td><td>1024.0</td><td>1024.0</td></tr></tbody></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Category Histogram Analysis</p>
+<p><img src="../resources/Untitled-11.png" width="auto" height="auto" alt="Untitled 11.png"/></p>
+</li>
+<li>
+<p>RGB Component Analysis by Category</p>
+<ul>
+<li>
+<p>Average, Std by Channel for red</p>
+</li>
+</ul>
+<p><img src="../resources/Untitled-1-9.png" width="auto" height="auto" alt="Untitled 1 9.png"/></p>
+<p><img src="../resources/Untitled-2-6.png" width="auto" height="auto" alt="Untitled 2 6.png"/></p>
+<ul>
+<li>
+<p>Average, Std by Channel for green</p>
+</li>
+</ul>
+<p><img src="../resources/Untitled-3-5.png" width="auto" height="auto" alt="Untitled 3 5.png"/></p>
+<p><img src="../resources/Untitled-4-4.png" width="auto" height="auto" alt="Untitled 4 4.png"/></p>
+<ul>
+<li>
+<p>Average, Std by Channel for blue</p>
+</li>
+</ul>
+<p><img src="../resources/Untitled-5-3.png" width="auto" height="auto" alt="Untitled 5 3.png"/></p>
+<p><img src="../resources/Untitled-6-3.png" width="auto" height="auto" alt="Untitled 6 3.png"/></p>
+<ul>
+<li>
+<p>RGB Average</p>
+<p><img src="../resources/Untitled-7-2.png" width="auto" height="auto" alt="Untitled 7 2.png"/></p>
+</li>
+<li>
+<p>RGB Mean</p>
+<p><img src="../resources/Untitled-8-2.png" width="auto" height="auto" alt="Untitled 8 2.png"/></p>
+</li>
+<li>
+<p>RGB Std.</p>
+<p><img src="../resources/Untitled-9-2.png" width="auto" height="auto" alt="Untitled 9 2.png"/></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Annotation per Image Analysis</p>
+</li>
+</ul>
+<p><img src="../resources/Untitled-10-2.png" width="auto" height="auto" alt="Untitled 10 2.png"/></p>
+<p><img src="../resources/Untitled-11-2.png" width="auto" height="auto" alt="Untitled 11 2.png"/></p>
+<ul>
+<li>
+<p>Size Analysis by Category</p>
+<p>Width &amp; Height</p>
+<p><img src="../resources/Untitled-12.png" width="auto" height="auto" alt/></p>
+<p>Category ID &amp; W/H Ratio</p>
+<p><img src="../resources/Untitled-13.png" width="auto" height="auto" alt/></p>
+</li>
+</ul>
+<h3 id="2-모델-탐색">2. 모델 탐색<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-모델-탐색" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>개별 최적 모델 탐색
+<ul>
+<li>Backbone
+<ul>
+<li>Swin 계열, Resnet50, Resnext, Darknet, …</li>
+</ul>
+</li>
+<li>Model
+<ul>
+<li>RetinaNet, YOLOX, FPN, R-CNN, Cascade R-CNN, Deformable, DETR, SSD…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>단일 모델 Top-2
+<ol>
+<li>Deformable DETR (Backbone : Resnet 50)
+<ol>
+<li>
+<p>모델 구조</p>
+<p><img src="../resources/e5a7f374-e337-4801-89bd-50a979d9f02b.png" width="auto" height="auto" alt/></p>
+</li>
+<li>
+<p>학습 결과</p>
+<p><img src="../resources/Screenshot_2022-12-05_at_10.44.57_AM.png" width="auto" height="auto" alt/></p>
+</li>
+<li>
+<p>모델에 대한 고찰</p>
+<ul>
+<li>백본으로 Resnet-50을 사용하고, Neck / Head 구조는 Deformable DETR 을 채택하였고, Two-stage 와 One-stage가 모두 가능한 구조여서 본 실험에서는 Two-stage로 실험을 하게 되었다.</li>
+<li>MMDetection에서 Pre-trained model weight 를 제공하고 있어서, weight 를 불러오지 않았을 때에 비하여 모델의 빠른 수렴을 얻을 수 있었다.</li>
+<li>Soft NMS 를 적용함에 따라 최종 추론하는 Boundary Box를 유효하게 늘릴 수 있었고, mAP의 향상이 있었다.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Faster RCNN (Backbone : Swin-S)
+<ol>
+<li>
+<p>모델 구조</p>
+<p><img src="../resources/533a3fd6276243a7af5765299dc36b7f.png" width="auto" height="auto" alt/></p>
+</li>
+<li>
+<p>학습 결과</p>
+<p><img src="../resources/Screenshot_2022-12-05_at_10.58.43_AM.png" width="auto" height="auto" alt/></p>
+</li>
+<li>
+<p>모델에 대한 고찰</p>
+<ul>
+<li>가장 좋은 결과를 내고 있었던 Faster-RCNN 모델에 백본을 Swin Transformer S 로 변경하여 학습을 진행하였고, Resnet-50 과 비교하여 Overfitting이 지연되고, 학습 셋의 특징을 더 잘 수렴할 수 있었다.</li>
+<li>MMDetection에서 Pre-trained model weight 를 제공하고 있어서, weight 를 불러오지 않았을 때에 비하여 모델의 빠른 수렴을 얻을 수 있었다.</li>
+<li>Soft NMS 를 적용함에 따라 최종 추론하는 Boundary Box를 유효하게 늘릴 수 있었고, mAP의 향상이 있었다.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-image-size">3. Image Size<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-image-size" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Train Image Size
+<ul>
+<li>EDA를 통해 작은 BBox가 많은 것을 확인</li>
+<li>원본 데이터 정보 손실을 최대한 줄이기 위해 (512, 512) 보다 더 큰 사이즈로 학습 및 추론</li>
+</ul>
+</li>
+<li>Image slice
+<ul>
+<li>(1024, 1024) 원본의 정보를 그대로 활용할 수 있도록 이미지를 분할하여 학습</li>
+<li>Test image 또한 분할하여 추론하고 추출된 결과를 합병</li>
+<li>학습 과정에서는 성능이 좋아지는 듯 보였으나 합병하는 과정에서 Overlapping Object의 정보의 손실이 발생하여 오히려 낮은 결과를 보임</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-overlapping-object-detection-strategy">4. Overlapping Object Detection S<strong>trategy</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-overlapping-object-detection-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Soft NMS
+<ul>
+<li>기존 NMS 방식을 Soft NMS 방식으로 바꿔 Overlapping Object를 탐지 할 수 있도록 변경</li>
+</ul>
+</li>
+<li>Confidence Score
+<ul>
+<li>Confidence thresold를 낮춰 많은 BBox를 검출하여 Overlapping Object를 검사할 수 있게 추론</li>
+</ul>
+</li>
+<li>NMS IoU thresold
+<ul>
+<li>IoU thresold를 낮춰 가장 점수가 높은 Bbox와 근처의 Bbox까지 더 찾아질 수 있도록 변경</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-augmentation">5. Augmentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-augmentation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>모델이 Overfitting 되는 경향을 파악, 추가되는 Augmentation의 장점과 모델에 가해지는 단점을 전부 생각한 후 적용 유무를 결정</p>
+<ul>
+<li><strong>ShiftScaleRotate →</strong> Overfitting을 막기위해 데이터 증강의 방법으로서 진행</li>
+<li><strong>RandomBrightnessContrast →</strong> 이미지 EDA결과 밝기와 대조가 올라가면 이미지 구분이 더 잘 될 것이라는 판단 하에 진행.</li>
+<li><strong>RGBShift →</strong> RGB 값을 조정하여 원하는 Object가 더 눈에 띄고 모델이 잘 찾아낼 수 있게 함</li>
+</ul>
+<p>다만 값을 크게 줄 경우 오히려 방해가 되므로 적정 한 값을 테스트를 통해 찾아냄</p>
+<ul>
+<li><strong>HueSaturationValue →</strong> HSV 값을 조정하여 원하는 Object가 더 눈에 띄고 모델이 잘 찾아낼 수 있게 함</li>
+</ul>
+<p>RGBShift와 마찬가지로 적정 한 값을 테스트를 통해 찾아냄</p>
+<ul>
+<li><strong>JpegCompression →</strong> 이미지 품질을 낮춰서 강선성을 높이고자 함, 품질이 낮아지는 면이 걱정되었지만 단일 이미지에 적용 후 확인해보니 괜찮다고 판단</li>
+<li><strong>ChannelShuffle →</strong> 무작위로 채널을 섞어줘서 강건성을 높이고자 함</li>
+<li><strong>Blur</strong> → Drop out 과 같은 효과를 주어 모델의 강건성을 높이고자 함.</li>
+<li><strong>MedianBlur →</strong> Noise를 어느정도 제거하고자 하였음, 다만 화질이 뭉쳐 있는 부작용이 일어날 수 있으나 Task를 수행하는 데는 큰 영향이 없다고 판단</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-model-ensemble">6. Model Ensemble<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-model-ensemble" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>Ensemble Method</p>
+<ul>
+<li>NMS(None Maximum Suppression) 사용</li>
+</ul>
+<p><img src="../resources/Untitled-14.png" width="auto" height="auto" alt/></p>
+</li>
+<li>
+<p>Ensemble Parameter : IOU Threshold</p>
+<ul>
+<li>IOU가 해당 Threshold이상인 것만 Ensemble 수행</li>
+<li>Parameter Search : 이진 탐색 기법으로 접근, Submission을 통해 최적 Threahold 추정
+<ul>
+<li>IOU 0.5 → IOU 0.9 → IOU 0.7 → IOU 0.6 → <strong>IOU 0.55(Best)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-리더보드-제출-평가-최종">7. 리더보드 제출 평가 (최종)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-리더보드-제출-평가-최종" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../resources/Screenshot_2022-12-05_at_2.57.56_AM.png" width="auto" height="auto" alt/></p>
+<ul>
+<li>Deformable DETR (R50) 과 Faster-RCNN (Swin-S), Faster-RCNN (800x600, soft_nms,treshold 0.1 ) 모델을 IoU Threshold 0.55 로 NMS 하여 앙상블한 결과를 제출한 것이 최종 제출에서 가장 좋은 결과를 얻게 되었다.</li>
+<li>이는, Neck이 트랜스포머인 경우, 백본이 트랜스포머인 경우 등 서로 다른 특성을 가지는 모델을 앙상블 하였기에 다양성을 이끌어 낼 수 있었으며, mAP 를 계산하는데 있어 Precision을 높을 수 있었다고 평가하고 있다.</li>
+</ul>
+<hr/>
+<h2 id="자체-평가-의견">자체 평가 의견<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#자체-평가-의견" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-결과-분석">1. 결과 분석<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-결과-분석" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Backbone 만 Pretrained 모델을 사용한 것 보다 전체 Architecture의 Pretrained 모델을 가져오는 것이 더 학습에 효과적이였다.
+<ul>
+<li>Backbone 만이 아닌 Neck, head 부분도 Task에 적합한 Pretrained 모델을 사용했다면 더 좋은 결과를 얻을 수 있을 것이라 생각됨</li>
+</ul>
+</li>
+<li>추론된 Bbox가 많을 수록 더 높은 mAP 성능을 보임
+<ul>
+<li>mAP가 높아도 결과 이미지 시각화 시 원하는 모습을 보이지 않았다.</li>
+<li>실생활에 사용할 모델을 학습할 때는 사용 목적과 의미에 따라 평가 지표를 더 정확하게 사용해야 함을 알게됨</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-회고-및-향후-개선점">2. 회고 및 향후 개선점<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-회고-및-향후-개선점" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>회고 의견
+<ul>
+<li>늦은 출발인 만큼 팀원 모두가 적극적으로 팀에 기여할 부분을 찾아내 주도적으로 학습하고, 실험하여 우리의 최선을 다한 대회였다고 생각한다.</li>
+<li>상호간에 의견을 항상 존중하는 자세는 트러블을 최소화하고 한 마음으로 대회를 하는데 큰 도움이 되어주었다.</li>
+<li>EDA 를 통한 통찰과, 학습 이미지를 눈으로 보며 얻은 사람의 직관을 딥러닝 모델에 전달하고자 했던 것들이 생각만큼 의미있는 결과로 이어지지 못하였다.</li>
+<li>협업 툴에 익숙해지자는 프로젝트 첫 목표를 잘 이루어 내었다.</li>
+</ul>
+</li>
+<li>아쉬운 점
+<ul>
+<li>외부 경진대회 참가로 인하여 일주일 정도 늦은 출발을 하게되었는데, 실험 횟수의 부족이 최종 결과 도출에서도 큰 악영향으로 다가왔다.</li>
+<li>대회 후반부에 들어선 후, 오르지 않는 성능과 타 팀과의 리더보드 랭킹 격차, 부족한 시간으로 체계적인 실험을 진행하는데 큰 부담이 되었다.</li>
+<li>실패한 실험을 적극적으로 공유하여 이유를 찾고 더 좋은 가설이나 실험을 찾아내는 데 기여할 수 있었지만 이를 제대로 하지 못하였다.</li>
+</ul>
+</li>
+<li>향후 개선점
+<ul>
+<li>하루도 허투루 쓰지 않고 최대한 많은 실험을 진행하여 온전히 대회에 집중하는것이 필요하다고 느꼈다.</li>
+<li>본 대회처럼 실험 관리를 위하여 WandB 등 을 적극적으로 활용해야 할 것이라고 생각하며, 제공되는 기본 기능 이외에도 우리가 수집해야 할 Metric 이 있다면 추가하거나 이미지도 수집하는 등 커스텀도 필요하다고 느꼈다.</li>
+<li>Notion이나 다른 협업 툴을 사용하여 실험 설계 및 결과, TODO 등을 더 적극적으로 문서화하는 과정이 필요하다.</li>
+</ul>
+</li>
+</ul>
+<hr/></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul class="toc-content overflow" id="list-1"><li class="depth-0"><a href="#프로젝트-개요" data-for="프로젝트-개요">프로젝트 개요</a></li><li class="depth-1"><a href="#설명" data-for="설명">설명</a></li><li class="depth-1"><a href="#평가" data-for="평가">평가</a></li><li class="depth-0"><a href="#프로젝트-팀-구성-및-역할" data-for="프로젝트-팀-구성-및-역할">프로젝트 팀 구성 및 역할</a></li><li class="depth-0"><a href="#프로젝트-수행-절차-및-방법" data-for="프로젝트-수행-절차-및-방법">프로젝트 수행 절차 및 방법</a></li><li class="depth-1"><a href="#1-협업-방식" data-for="1-협업-방식">1. 협업 방식</a></li><li class="depth-1"><a href="#2-접근-전략" data-for="2-접근-전략">2. 접근 전략</a></li><li class="depth-1"><a href="#3-수행-과정" data-for="3-수행-과정">3. 수행 과정</a></li><li class="depth-0"><a href="#프로젝트-수행-결과" data-for="프로젝트-수행-결과">프로젝트 수행 결과</a></li><li class="depth-1"><a href="#1-데이터-분석" data-for="1-데이터-분석">1. 데이터 분석</a></li><li class="depth-1"><a href="#2-모델-탐색" data-for="2-모델-탐색">2. 모델 탐색</a></li><li class="depth-1"><a href="#3-image-size" data-for="3-image-size">3. Image Size</a></li><li class="depth-1"><a href="#4-overlapping-object-detection-strategy" data-for="4-overlapping-object-detection-strategy">4. Overlapping Object Detection Strategy</a></li><li class="depth-1"><a href="#5-augmentation" data-for="5-augmentation">5. Augmentation</a></li><li class="depth-1"><a href="#6-model-ensemble" data-for="6-model-ensemble">6. Model Ensemble</a></li><li class="depth-1"><a href="#7-리더보드-제출-평가-최종" data-for="7-리더보드-제출-평가-최종">7. 리더보드 제출 평가 (최종)</a></li><li class="depth-0"><a href="#자체-평가-의견" data-for="자체-평가-의견">자체 평가 의견</a></li><li class="depth-1"><a href="#1-결과-분석" data-for="1-결과-분석">1. 결과 분석</a></li><li class="depth-1"><a href="#2-회고-및-향후-개선점" data-for="2-회고-및-향후-개선점">2. 회고 및 향후 개선점</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Naver-Connect---Boostcamp-AI-Tech-4기" class="internal">Naver Connect - Boostcamp AI Tech 4기</a></li><li><a href="../Project/NAVER-Connect-재활용-품목-분류를-위한-Object-Detection" class="internal">NAVER Connect 재활용 품목 분류를 위한 Object Detection</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.1</a> © 2025</p><ul><li><a href="https://github.com/404Vector/404Vector">GitHub</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../postscript.js" type="module"></script></html>

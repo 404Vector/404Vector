@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>제 2차 커피드백 - 서로의 글 피드백 하기</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="HyeongSeok Kim's Vault"/><meta property="og:title" content="제 2차 커피드백 - 서로의 글 피드백 하기"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="제 2차 커피드백 - 서로의 글 피드백 하기"/><meta name="twitter:description" content="글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화..."/><meta property="og:description" content="글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화..."/><meta property="og:image:alt" content="글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvdmF1bHQuaHllb25nc2Vvay1raW0vdmF1bHQuaHllb25nc2Vvay1raW0vcXVhcnR6L3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwYWRkaW5nOiAycmVtO1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Personal/글또-8기/제-2차-커피드백---서로의-글-피드백-하기"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">HyeongSeok Kim's Vault</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="explorer-content" aria-expanded="false"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Personal/">Personal</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Personal/글또-8기/">글또 8기</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>제 2차 커피드백   서로의 글 피드백 하기</a></div></nav><h1 class="article-title">제 2차 커피드백 - 서로의 글 피드백 하기</h1><p show-comma="true" class="content-meta"><time datetime="2025-06-17T03:24:24.690Z">Jun 17, 2025</time><span>15 min read</span></p></div></div><article class="popover-hint"><ul>
+<li>
+<p>글또 피드백 가이드라인</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> 글의 흐름은 자연스러운가?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 아무것도 모르는 독자가 읽어도 쉽게 이해되는가?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 맞춤법 혹은 띄어쓰기 오류가 있는가?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 더 궁금한 내용이 있는가?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 더 추가하면 좋을 내용이 있는가?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> 적절하게 이미지를 활용했는지</li>
+</ul>
+</li>
+<li>
+<p>정연님</p>
+<ul>
+<li>WASABI(<a href="https://curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html" class="external">https://curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)
+<ul>
+<li>
+<p>글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등)</p>
+<p>→ 우선 저는 강화학습에 대한 배경지식이 거의 없어서 reward, policy 등의 용어가 무엇을 뜻하는지 알 수 없었습니다. 다만 이런 글의 경우 보통 관련 전공자가 읽기 때문에, 쓰지 고민하지 않아도 될거같습니다.</p>
+</li>
+<li>
+<p>논문 리뷰글에서 중요하게 생각하는 부분들이 무엇인지</p>
+<p><span class="text-highlight">→ 논문 리뷰 글은 논문을 읽는것보다 더 빠르고 간결하게 그 논문을 이해하고 핵심적인 내용(모델 구조, 기여 등)을 알 수 있게 해주는 것이라고 생각합니다.</span></p>
+</li>
+</ul>
+</li>
+<li>Orbit 설치하기(<a href="https://curieuxjy.github.io/posts/code/2023-04-04-insatll-orbit.html" class="external">https://curieuxjy.github.io/posts/code/2023-04-04-insatll-orbit.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)
+<ul>
+<li>
+<p>실습과 코드 위주의 글에서 독자 입장에서 바라는 점이 있다면 어떤 점인지/해당 글은 그런 점들을 잘 만족하는지</p>
+<h1 id="-빠르고-쉽게-실습을-할-수-있고-step별로-정리되어-있으며-실습을-진행하면서-많이-실수하는-부분을-짚어줄-수-있는-것입니다직접-해보지는-않았지만-글이-어렵다고-느껴지지는-않았으며-step별로-정리되어-있어-읽기-좋았습니다다만-혹여-초심자들이-실수해서-오류를-발생시키는-포인트-들이-있다면-추가해주시면-좋을거같습니다">==→ 빠르고 쉽게 실습을 할 수 있고, Step별로 정리되어 있으며, 실습을 진행하면서 많이 실수하는 부분을 짚어줄 수 있는 것입니다.<br/>
+직접 해보지는 않았지만, 글이 어렵다고 느껴지지는 않았으며 Step별로 정리되어 있어 읽기 좋았습니다.<br/>
+다만 혹여 초심자들이 실수해서 오류를 발생시키는 포인트 들이 있다면 추가해주시면 좋을거같습니다.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-빠르고-쉽게-실습을-할-수-있고-step별로-정리되어-있으며-실습을-진행하면서-많이-실수하는-부분을-짚어줄-수-있는-것입니다직접-해보지는-않았지만-글이-어렵다고-느껴지지는-않았으며-step별로-정리되어-있어-읽기-좋았습니다다만-혹여-초심자들이-실수해서-오류를-발생시키는-포인트-들이-있다면-추가해주시면-좋을거같습니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+</li>
+<li>
+<p>새로운 프로그램에 대한 흥미도를 끌어올릴 수 있는 글인지</p>
+<p><span class="text-highlight">→ 이부분은… 잘 모르겠습니다 ㅠ</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>현우님</p>
+<ul>
+<li>
+<p>글또 8기를 시작하며 (<a href="https://www.sshowbiz.xyz/9d54a07e-e211-4c79-b29f-f72b53107b2f" class="external">https://www.sshowbiz.xyz/9d54a07e-e211-4c79-b29f-f72b53107b2f<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+<ul>
+<li>
+<p>글의 몰입감이 어떠한가요?</p>
+<p><span class="text-highlight">→ 글또 7기를 수료한 현우님께서 아쉬웠던 점과 글쓰기를 더 하기 위해 8기를 시작했다는 것을 알 수 있었습니다. 필요한 만큼의 몰입도를 갖고 있다고 생각합니다.</span></p>
+</li>
+<li>
+<p>지루해서 중간에 그만 읽고 싶다면, 어떤 것을 개선하면 좋을까요?</p>
+<p><span class="text-highlight">→ 현우님의 개인의 8기 참여 이유에 대한 서술이 주를 이루기 때문에 만약 다른 사람을 염두한다면 글 자체를 더 가볍고 간략하게 하는것은 어떨까 생각합니다.</span></p>
+</li>
+<li>
+<p>일상적인 글을 더 몰입감 있게 작성하려면 어떻게 하면 좋을까요?</p>
+<p><span class="text-highlight">→ 음.. 이부분은 잘 모르겠습니다. 저는 개인적으로 일상적인 글이 몰입감이 있어야 한다고 생각하지 않습니다. ㅠㅠ</span></p>
+</li>
+<li>
+<p>이 글은 사실 개인적인 일기에 가까워서 명확한 독자 층을 설정하고 작성한 글은 아닙니다만, 저는 누군가의 일기 같은 후기 글도 재미있게 읽은 경험이 있고, 그것과 비슷하게 흉내내어 보려고 했습니다.이러한 일기 형태의 글을 누군가가 잘 읽을 수 있도록 할 수 있는 방법이 있을까요?</p>
+<p><span class="text-highlight">→ 다른 사람의 입장에서 궁금해할 수 있는 정보가 포함되면 좋지 않을까 생각합니다. 예를 들어 글또가 비슷한 분야의 사람들끼리 네트워킹하는 기회를 제공한다는 정보도 다른 사람입장에서 궁금하고 알고싶은 내용이 아닐까 싶습니다.</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>HyperDiffusion (<a href="https://www.sshowbiz.xyz/c94ff081-07c5-4b28-b381-13716bc799e9" class="external">https://www.sshowbiz.xyz/c94ff081-07c5-4b28-b381-13716bc799e9<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</p>
+<ul>
+<li>저는 리뷰할 때 요새 Experiments 는 크게 공을 들여 서술하지는 않고 나열식인 경우가 많긴 한데,</li>
+<li>서술이 (입문자의 입장에서 논문의 이해, 해당 분야 종사자의 입장에서 디테일에) 도움이 되는 것 같은지</li>
+<li>해당 부분 설명이 지금도 괜찮은지 혹은 어떻게 바꾸면 더 나아질 것 같은지</li>
+<li>전체적인 글의 가시성에 개선할 점이 있다면 어떤 것이 있을까요?</li>
+<li>읽는데 거슬렸던 부분이 있을까요?</li>
+<li>댓글 허용, 목차 정리 등의 기능을 도입하신 분이 있다면 후기가 궁금합니다!</li>
+<li>이 외에 추가로 넣으면 좋을 기능이 있을까요?</li>
+</ul>
+<h1 id="-기존-논문의-구성을-그대로-따르면서-한글로-이해하기-쉽게-풀어-주셔서-좋다고-생각합니다-입문자의-입장에서는-읽기-힘든-글이지만-해당-분야-종사자의-입장에서는-가치-있는-글이라고-생각합니다실험의-경우-현우님이-크게-중요하지-않다고-생각한다면-생략해도-상관-없다고-생각합니다-너무-많은-내용이-되려-이해하기-힘든-장벽이-되는-경우도-있었기-때문입니다">==→ 기존 논문의 구성을 그대로 따르면서, 한글로 이해하기 쉽게 풀어 주셔서 좋다고 생각합니다. 입문자의 입장에서는 읽기 힘든 글이지만, 해당 분야 종사자의 입장에서는 가치 있는 글이라고 생각합니다.<br/>
+실험의 경우, 현우님이 크게 중요하지 않다고 생각한다면 생략해도 상관 없다고 생각합니다. 너무 많은 내용이 되려 이해하기 힘든 장벽이 되는 경우도 있었기 때문입니다.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-기존-논문의-구성을-그대로-따르면서-한글로-이해하기-쉽게-풀어-주셔서-좋다고-생각합니다-입문자의-입장에서는-읽기-힘든-글이지만-해당-분야-종사자의-입장에서는-가치-있는-글이라고-생각합니다실험의-경우-현우님이-크게-중요하지-않다고-생각한다면-생략해도-상관-없다고-생각합니다-너무-많은-내용이-되려-이해하기-힘든-장벽이-되는-경우도-있었기-때문입니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+</li>
+</ul>
+</li>
+<li>
+<p>유진님</p>
+<ul>
+<li>ATSS 논문 리뷰 (<a href="https://velog.io/@dust_potato/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0-Bridging-the-Gap-Between-Anchor-based-and-Anchor-free-Detection-via-Adaptive-Training-Sample-Selection-CVPR-2020" class="external">https://velog.io/@dust_potato/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0-Bridging-the-Gap-Between-Anchor-based-and-Anchor-free-Detection-via-Adaptive-Training-Sample-Selection-CVPR-2020<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)
+<ul>
+<li>
+<p>최대한 백그라운드를 담아보려 했는데 글의 이해에 도움이 되는지</p>
+<p><span class="text-highlight">→ 이건 제 매우매우 개인적인, 취향에 가까운 생각인데.. 저는 글에서 이해에 필요한 배경지식 다뤄도 솔직히 이해가 잘 되지않습니다(다른 분들의 글도) 따라서 저는 개인적으로 이해해야 할 배경지식들이 있다면 그것을 잘 정리한 글의 링크를 상단에 서술해주시는 것을 좋아합니다.</span></p>
+</li>
+<li>
+<p>부족하다면 어떤 키워드에 대한 백그라운드를 더 담아야 할지</p>
+<p><span class="text-highlight">→ ATSS에 대한 python 구현 코드 등이 있다면 좋을거같습니다.(개인 취향입니다)</span></p>
+</li>
+<li>
+<p>논문 설명 중 논리적이지 않은 부분은 없는지</p>
+<p><span class="text-highlight">→ 없었습니다!</span></p>
+</li>
+<li>
+<p>특히 Exp1 - Inconsistency Removal 부분 명확하게 이해 되시는지</p>
+<h1 id="-제가-이해한-내용으로는-anchor-based-model들에-대한-비교-실험을-진행하였고-목적은-the-number-of-anchors-tiled-per-location의-차이가-검출-성능에-중요한-역할을-하는지를-검증하기-위함이었습니다-결과-fcos에-사용한-기법을-retinanet에-적용해보았고-fcos와의-성능-차이가-ap-08까지-좁혀진-결과를-얻었습니다-때문에-the-number-of-anchors-tiled-per-location이-모델-성능에-중요한-역할을-하지-않는-다는-것을-실험적으로-증명했습니다다만-이것이-anchor-based-와-anchor-free-methods의-핵심-차이점이-아닌-것을-의미합니다라는-결과로-이어지는-것은-조금-이상하다고-느꼈습니다">==→ 제가 이해한 내용으로는, anchor based model들에 대한 비교 실험을 진행하였고, 목적은 “The number of anchors tiled per location”의 차이가 검출 성능에 중요한 역할을 하는지를 검증하기 위함이었습니다. 결과, FCOS에 사용한 기법을 RetinaNet에 적용해보았고, FCOS와의 성능 차이가 AP 0.8까지 좁혀진 결과를 얻었습니다. 때문에 “The number of anchors tiled per location”이 모델 성능에 중요한 역할을 하지 않는 다는 것을 실험적으로 증명했습니다.<br/>
+다만 이것이 “anchor-based 와 anchor-free methods의 핵심 차이점이 아닌 것을 의미합니다.”라는 결과로 이어지는 것은 조금 이상하다고 느꼈습니다.<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-제가-이해한-내용으로는-anchor-based-model들에-대한-비교-실험을-진행하였고-목적은-the-number-of-anchors-tiled-per-location의-차이가-검출-성능에-중요한-역할을-하는지를-검증하기-위함이었습니다-결과-fcos에-사용한-기법을-retinanet에-적용해보았고-fcos와의-성능-차이가-ap-08까지-좁혀진-결과를-얻었습니다-때문에-the-number-of-anchors-tiled-per-location이-모델-성능에-중요한-역할을-하지-않는-다는-것을-실험적으로-증명했습니다다만-이것이-anchor-based-와-anchor-free-methods의-핵심-차이점이-아닌-것을-의미합니다라는-결과로-이어지는-것은-조금-이상하다고-느꼈습니다" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<ul>
+<li><span class="text-highlight">제가 이해를 잘못했군요 ㅠ 죄송합니다</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Yolo5~8 요약 리뷰 (<a href="https://velog.io/@dust_potato/Yolo-v1Yolo-v8-%EC%9A%94%EC%95%BD-%EB%A6%AC%EB%B7%B0" class="external">https://velog.io/@dust_potato/Yolo-v1Yolo-v8-%EC%9A%94%EC%95%BD-%EB%A6%AC%EB%B7%B0<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)
+<ul>
+<li>
+<p>요약 리뷰이긴 한데 독자가 이해는 해야 하니 백그라운드를 최대한 넣었는데 이 부분이 이해에 도움/방해가 되는지 여부와 그 이유?</p>
+<p><span class="text-highlight">→ 버전별로 필요한 백그라운드가 존재하며, 이를 이해하면서 오히려 Yolo 5~8에 대한 몰입도가 떨어짐을 느꼈습니다. 백그라운드를 잘 이해할 수 있는 링크로 대체하는 것이 좋다고 느껴졌습니다.</span></p>
+</li>
+<li>
+<p>비어캔 치킨 같은 고집으로 글을 나누지 않고 하나에 적었는데 양은 어떤지</p>
+<p><span class="text-highlight">→ 각 버전별 구성 자체가 개별 글로 빼도 부족하지 않을 구성 및 분량이라고 느껴집니다. 오히려 개별로 작성하고 핵심을 요약해주시면 좋지 않을까 생각됩니다.</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>내 글</p>
+<ul>
+<li>
+<p><a href="../../Project/Photometric-Stereo를-사용한-형상추출-알고리즘-개발" class="internal alias" data-slug="Project/Photometric-Stereo를-사용한-형상추출-알고리즘-개발">Photometric Stereo를 사용한 형상추출 알고리즘 개발</a></p>
+<ul>
+<li>재직 중 진행했던 프로젝트를 포트폴리오로 만들고 싶어서 쓴 글 입니다. 다만, 영업비밀을 다룰 수는 없어서 일반적인 내용만을 기술했습니다. 다른 분들이 보시기에 포트폴리오로 삼을만한 가치가 있어보이는지 궁금합니다.</li>
+<li>이해하기 읽기 불편한 부분이 있는지 궁금합니다.</li>
+</ul>
+<p>기업한테 어떤 문제를 어떻게 해결했는지 필요한 일인지 공감가고 정량적인 성과가 있어서 좋았음</p>
+<p>Camera Device에서 모든 처리를 하고 보내주기 때문에 오래 걸림, 여러 종류(Albedo, Gradient, etc)의 이미지를 사용해야 하는데 차례로 한 장씩 전송됨 → 모든 처리가 어떤 의미인지?</p>
+<p>s와 n이 무엇인지 이해에 도움이 되는 그림 예시가 있으면 좋겠음</p>
+<p>더 잘 기술할 수 있었을까?</p>
+<p>용어들이 친숙하지 않고 약어들에 대한 풀어가 한번은 되어 있었으면 좋겠다.</p>
+<p>전체적으로는 흐름이 이해가 가긴 한다. 그러나 수식적인 부분이 너무 나열되있어 아쉬웠다.</p>
+<p>github, notion에 필요성과 본인이 한것을 짧게 요약한 문단이 있었으면 좋겠다. ppt같은 템포로 그림이 추가되면 좋을 것 같다(이해를 위해)</p>
+<p>LUT 무엇인지 풀어쓰기…</p>
+</li>
+<li>
+<p><a href="../../Knowledge/Machine-Learning/DBPN---Deep-Back-Projection-Networks-for-Single-Image-Super-resolution" class="internal alias" data-slug="Knowledge/Machine-Learning/DBPN---Deep-Back-Projection-Networks-for-Single-Image-Super-resolution">DBPN - Deep Back-Projection Networks for Single Image Super-resolution</a></p>
+<ul>
+<li>원문의 구성을 그대로 따르지만, 실제 사용 및 이해에 필요한 부분만을 리뷰하였습니다.이 글을 통해 이 논문이 가진 특징 혹은 기여는 무엇인지, 모델은 구조는 어떤지, 훈련에 사용할 때 파라미터를 어떻게 할지 등을 원문을 읽지 않아도 알 수 있게 하는 것이 목적입니다.(나중에 까먹으면 제가 보려고..)</li>
+<li>다른 분들이 보시기에 이해에 필요한 설명이 부족하지는 않은지</li>
+<li>문맥상 어색한 내용이 존재하는지(필요 없다고 생각한 부분을 다 잘라서…) 궁금합니다.</li>
+</ul>
+<p>관련연구, 배경, 용어 설명, 약어가 친절하지 않음</p>
+<p>PSRN, SSIM에 대한 설명</p>
+<p>피드백 구조 해결된 문제인건가</p>
+<p>Dense 구조 추가하고 파라미터가 증가했는데 중요하지 않은건지?</p>
+<p>디테일이 잘 이해가 되지 않음(<strong>Feed-Back이 뭔지 처음 보는 사람이 잘 알 수 있게)이 뭔지…</strong></p>
+<p>기여가 무엇인지 확신할 수 없었다.(이해를 기반으로 기여를 작성해야 함)</p>
+<p>“전방향 및 역방향 투영” 이해가 안갈 수 있음 이해가 안가는 것들이 초반에 있으면 몰입도가 떨어짐.</p>
+<p>지금 몰라도 되는 티를 내거나, 이해할 수 있게 풀어주는 것이 좋을 것 같음.</p>
+<p>개요는 쉽게 풀어서 쓰는 것이 좋을 것 같습니다.</p>
+</li>
+<li>
+<p>코드 구현이 따로 있는데, 깃허브 정리가 끝나는 대로 링크를 추가할 예정입니다.</p>
+</li>
+</ul>
+</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul class="toc-content overflow" id="list-1"><li class="depth-0"><a href="#-빠르고-쉽게-실습을-할-수-있고-step별로-정리되어-있으며-실습을-진행하면서-많이-실수하는-부분을-짚어줄-수-있는-것입니다직접-해보지는-않았지만-글이-어렵다고-느껴지지는-않았으며-step별로-정리되어-있어-읽기-좋았습니다다만-혹여-초심자들이-실수해서-오류를-발생시키는-포인트-들이-있다면-추가해주시면-좋을거같습니다" data-for="-빠르고-쉽게-실습을-할-수-있고-step별로-정리되어-있으며-실습을-진행하면서-많이-실수하는-부분을-짚어줄-수-있는-것입니다직접-해보지는-않았지만-글이-어렵다고-느껴지지는-않았으며-step별로-정리되어-있어-읽기-좋았습니다다만-혹여-초심자들이-실수해서-오류를-발생시키는-포인트-들이-있다면-추가해주시면-좋을거같습니다">==→ 빠르고 쉽게 실습을 할 수 있고, Step별로 정리되어 있으며, 실습을 진행하면서 많이 실수하는 부분을 짚어줄 수 있는 것입니다.직접 해보지는 않았지만, 글이 어렵다고 느껴지지는 않았으며 Step별로 정리되어 있어 읽기 좋았습니다.다만 혹여 초심자들이 실수해서 오류를 발생시키는 포인트 들이 있다면 추가해주시면 좋을거같습니다.</a></li><li class="depth-0"><a href="#-기존-논문의-구성을-그대로-따르면서-한글로-이해하기-쉽게-풀어-주셔서-좋다고-생각합니다-입문자의-입장에서는-읽기-힘든-글이지만-해당-분야-종사자의-입장에서는-가치-있는-글이라고-생각합니다실험의-경우-현우님이-크게-중요하지-않다고-생각한다면-생략해도-상관-없다고-생각합니다-너무-많은-내용이-되려-이해하기-힘든-장벽이-되는-경우도-있었기-때문입니다" data-for="-기존-논문의-구성을-그대로-따르면서-한글로-이해하기-쉽게-풀어-주셔서-좋다고-생각합니다-입문자의-입장에서는-읽기-힘든-글이지만-해당-분야-종사자의-입장에서는-가치-있는-글이라고-생각합니다실험의-경우-현우님이-크게-중요하지-않다고-생각한다면-생략해도-상관-없다고-생각합니다-너무-많은-내용이-되려-이해하기-힘든-장벽이-되는-경우도-있었기-때문입니다">==→ 기존 논문의 구성을 그대로 따르면서, 한글로 이해하기 쉽게 풀어 주셔서 좋다고 생각합니다. 입문자의 입장에서는 읽기 힘든 글이지만, 해당 분야 종사자의 입장에서는 가치 있는 글이라고 생각합니다.실험의 경우, 현우님이 크게 중요하지 않다고 생각한다면 생략해도 상관 없다고 생각합니다. 너무 많은 내용이 되려 이해하기 힘든 장벽이 되는 경우도 있었기 때문입니다.</a></li><li class="depth-0"><a href="#-제가-이해한-내용으로는-anchor-based-model들에-대한-비교-실험을-진행하였고-목적은-the-number-of-anchors-tiled-per-location의-차이가-검출-성능에-중요한-역할을-하는지를-검증하기-위함이었습니다-결과-fcos에-사용한-기법을-retinanet에-적용해보았고-fcos와의-성능-차이가-ap-08까지-좁혀진-결과를-얻었습니다-때문에-the-number-of-anchors-tiled-per-location이-모델-성능에-중요한-역할을-하지-않는-다는-것을-실험적으로-증명했습니다다만-이것이-anchor-based-와-anchor-free-methods의-핵심-차이점이-아닌-것을-의미합니다라는-결과로-이어지는-것은-조금-이상하다고-느꼈습니다" data-for="-제가-이해한-내용으로는-anchor-based-model들에-대한-비교-실험을-진행하였고-목적은-the-number-of-anchors-tiled-per-location의-차이가-검출-성능에-중요한-역할을-하는지를-검증하기-위함이었습니다-결과-fcos에-사용한-기법을-retinanet에-적용해보았고-fcos와의-성능-차이가-ap-08까지-좁혀진-결과를-얻었습니다-때문에-the-number-of-anchors-tiled-per-location이-모델-성능에-중요한-역할을-하지-않는-다는-것을-실험적으로-증명했습니다다만-이것이-anchor-based-와-anchor-free-methods의-핵심-차이점이-아닌-것을-의미합니다라는-결과로-이어지는-것은-조금-이상하다고-느꼈습니다">==→ 제가 이해한 내용으로는, anchor based model들에 대한 비교 실험을 진행하였고, 목적은 “The number of anchors tiled per location”의 차이가 검출 성능에 중요한 역할을 하는지를 검증하기 위함이었습니다. 결과, FCOS에 사용한 기법을 RetinaNet에 적용해보았고, FCOS와의 성능 차이가 AP 0.8까지 좁혀진 결과를 얻었습니다. 때문에 “The number of anchors tiled per location”이 모델 성능에 중요한 역할을 하지 않는 다는 것을 실험적으로 증명했습니다.다만 이것이 “anchor-based 와 anchor-free methods의 핵심 차이점이 아닌 것을 의미합니다.”라는 결과로 이어지는 것은 조금 이상하다고 느꼈습니다.</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../Personal/글또-8기/글또-8기" class="internal">글또 8기</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.1</a> © 2025</p><ul><li><a href="https://github.com/404Vector/404Vector">GitHub</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>

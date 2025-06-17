@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Week 12</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="HyeongSeok Kim's Vault"/><meta property="og:title" content="Week 12"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Week 12"/><meta name="twitter:description" content="Software 1.0 vs Software 2.0 Software 1.0(딥러닝이 아닌 SW) Object Detection Accuract Improvements Software 2.0 Software 1.0 + Software 2.0 Lifecycle of an AI Project AI Research VS AI Production 서비스향 AI 모델 개발 과정 Production Process of AI Model Data! Data! Data! Data-related tasks Data engine / Flywheel O..."/><meta property="og:description" content="Software 1.0 vs Software 2.0 Software 1.0(딥러닝이 아닌 SW) Object Detection Accuract Improvements Software 2.0 Software 1.0 + Software 2.0 Lifecycle of an AI Project AI Research VS AI Production 서비스향 AI 모델 개발 과정 Production Process of AI Model Data! Data! Data! Data-related tasks Data engine / Flywheel O..."/><meta property="og:image:alt" content="Software 1.0 vs Software 2.0 Software 1.0(딥러닝이 아닌 SW) Object Detection Accuract Improvements Software 2.0 Software 1.0 + Software 2.0 Lifecycle of an AI Project AI Research VS AI Production 서비스향 AI 모델 개발 과정 Production Process of AI Model Data! Data! Data! Data-related tasks Data engine / Flywheel O..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Software 1.0 vs Software 2.0 Software 1.0(딥러닝이 아닌 SW) Object Detection Accuract Improvements Software 2.0 Software 1.0 + Software 2.0 Lifecycle of an AI Project AI Research VS AI Production 서비스향 AI 모델 개발 과정 Production Process of AI Model Data! Data! Data! Data-related tasks Data engine / Flywheel O..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  padding: 2rem;
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvdmF1bHQuaHllb25nc2Vvay1raW0vdmF1bHQuaHllb25nc2Vvay1raW0vcXVhcnR6L3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJRjtFQUNFO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi5leHBhbmQtYnV0dG9uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbG9hdDogcmlnaHQ7XG4gIHBhZGRpbmc6IDAuNHJlbTtcbiAgbWFyZ2luOiAwLjNyZW07XG4gIHJpZ2h0OiAwOyAvLyBOT1RFOiByaWdodCB3aWxsIGJlIHNldCBpbiBtZXJtYWlkLmlubGluZS50c1xuICBjb2xvcjogdmFyKC0tZ3JheSk7XG4gIGJvcmRlci1jb2xvcjogdmFyKC0tZGFyayk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWxpZ2h0KTtcbiAgYm9yZGVyOiAxcHggc29saWQ7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNpdGlvbjogMC4ycztcblxuICAmID4gc3ZnIHtcbiAgICBmaWxsOiB2YXIoLS1saWdodCk7XG4gICAgZmlsdGVyOiBjb250cmFzdCgwLjMpO1xuICB9XG5cbiAgJjpob3ZlciB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbiAgfVxuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IDA7XG4gIH1cbn1cblxucHJlIHtcbiAgJjpob3ZlciA+IC5leHBhbmQtYnV0dG9uIHtcbiAgICBvcGFjaXR5OiAxO1xuICAgIHRyYW5zaXRpb246IDAuMnM7XG4gIH1cbn1cblxuI21lcm1haWQtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBjb250YWluOiBsYXlvdXQ7XG4gIHotaW5kZXg6IDk5OTtcbiAgbGVmdDogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGRpc3BsYXk6IG5vbmU7XG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG5cbiAgJi5hY3RpdmUge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxuXG4gICYgPiAjbWVybWFpZC1zcGFjZSB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgaGVpZ2h0OiA4MHZoO1xuICAgIHdpZHRoOiA4MHZ3O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG5cbiAgICAmID4gLm1lcm1haWQtY29udGVudCB7XG4gICAgICBwYWRkaW5nOiAycmVtO1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Week-12"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">HyeongSeok Kim's Vault</a></h2><div class="spacer mobile-only"></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 1rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="explorer-content" aria-expanded="false"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Personal/">Personal</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../Personal/Naver-Connect---Boostcamp-AI-Tech-4기/">Naver Connect   Boostcamp AI Tech 4기</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Week 12</a></div></nav><h1 class="article-title">Week 12</h1><p show-comma="true" class="content-meta"><time datetime="2025-06-17T03:24:24.686Z">Jun 17, 2025</time><span>36 min read</span></p><ul class="tags"><li><a href="../../tags/" class="internal tag-link"></a></li></ul></div></div><article class="popover-hint"><ul>
+<li><a href="#software-10-vs-software-20" class="internal alias">Software 1.0 vs Software 2.0</a>
+<ul>
+<li><a href="#software-10%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%B4-%EC%95%84%EB%8B%8C-sw" class="internal alias">Software 1.0(딥러닝이 아닌 SW)</a></li>
+<li><a href="#object-detection-accuract-improvements" class="internal alias">Object Detection Accuract Improvements</a></li>
+<li><a href="#software-20" class="internal alias">Software 2.0</a></li>
+<li><a href="#software-10--software-20" class="internal alias">Software 1.0 + Software 2.0</a></li>
+</ul>
+</li>
+<li><a href="#lifecycle-of-an-ai-project" class="internal alias">Lifecycle of an AI Project</a>
+<ul>
+<li><a href="#ai-research-vs-ai-production" class="internal alias">AI Research VS AI Production</a>
+<ul>
+<li><a href="#%EC%84%9C%EB%B9%84%EC%8A%A4%ED%96%A5-ai-%EB%AA%A8%EB%8D%B8-%EA%B0%9C%EB%B0%9C-%EA%B3%BC%EC%A0%95" class="internal alias">서비스향 AI 모델 개발 과정</a></li>
+</ul>
+</li>
+<li><a href="#production-process-of-ai-model" class="internal alias">Production Process of AI Model</a></li>
+</ul>
+</li>
+<li><a href="#data-data-data" class="internal alias">Data! Data! Data!</a>
+<ul>
+<li><a href="#data-related-tasks" class="internal alias">Data-related tasks</a></li>
+<li><a href="#data-engine--flywheel" class="internal alias">Data engine / Flywheel</a></li>
+</ul>
+</li>
+<li><a href="#ocr-technology-and-service" class="internal alias">OCR Technology and service</a>
+<ul>
+<li><a href="#ocr-technology" class="internal alias">OCR Technology</a>
+<ul>
+<li><a href="#ocr" class="internal alias">OCR</a></li>
+<li><a href="#text-detector" class="internal alias">Text Detector</a></li>
+<li><a href="#text-recognizer" class="internal alias">Text Recognizer</a></li>
+<li><a href="#serializer" class="internal alias">Serializer</a></li>
+<li><a href="#text-parser" class="internal alias">Text Parser</a></li>
+</ul>
+</li>
+<li><a href="#ocr-services" class="internal alias">OCR Services</a>
+<ul>
+<li><a href="#text-extractor" class="internal alias">Text Extractor</a></li>
+<li><a href="#text-extractor--natural-language-processing" class="internal alias">Text Extractor + Natural Language Processing</a></li>
+<li><a href="#key-value-extractor" class="internal alias">Key-Value Extractor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#introduce-of-text-detection" class="internal alias">Introduce of Text Detection</a>
+<ul>
+<li><a href="#basics" class="internal alias">Basics</a>
+<ul>
+<li><a href="#%EC%9D%BC%EB%B0%98-%EA%B0%9D%EC%B2%B4-%EC%98%81%EC%97%AD-%EA%B2%80%EC%B6%9C-vs-%EA%B8%80%EC%9E%90-%EC%98%81%EC%97%AD-%EA%B2%80%EC%B6%9C" class="internal alias">일반 객체 영역 검출 vs 글자 영역 검출</a></li>
+</ul>
+</li>
+<li><a href="#taxonomy" class="internal alias">Taxonomy</a>
+<ul>
+<li><a href="#regression-based-vs-segmentation-based" class="internal alias">Regression-based vs Segmentation-based</a></li>
+<li><a href="#character-based-vs-word-based" class="internal alias">Character-based vs Word-based</a></li>
+</ul>
+</li>
+<li><a href="#eastan-efficient-add-accurate-scene-text-detectorcvpr-2017" class="internal alias">EAST(An Efficient add Accurate Scene Text Detector(CVPR 2017)</a></li>
+</ul>
+</li>
+<li><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%86%8C%EA%B0%9C" class="internal alias">데이터 소개</a>
+<ul>
+<li><a href="#data-collection" class="internal alias">Data Collection</a>
+<ul>
+<li><a href="#ocr-%ED%95%99%EC%8A%B5-%EB%B0%8F-%ED%8F%89%EA%B0%80-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%94-%EC%96%B4%EB%94%94%EC%97%90%EC%84%9C-%EC%98%A4%EB%8A%94%EA%B0%80" class="internal alias">OCR 학습 및 평가 데이터는 어디에서 오는가?</a></li>
+</ul>
+</li>
+<li><a href="#public-dataset" class="internal alias">Public Dataset</a>
+<ul>
+<li><a href="#icdar-15--incidental-scene-text-dataset" class="internal alias">ICDAR 15 : Incidental Scene Text Dataset</a></li>
+<li><a href="#icdar-17--multi-lingual-scene-text-dataset" class="internal alias">ICDAR 17 : Multi-Lingual Scene Text Dataset</a></li>
+</ul>
+</li>
+<li><a href="#ufoupstage-format-for-ocr" class="internal alias">UFO(Upstage Format for OCR)</a>
+<ul>
+<li><a href="#ufo%EB%9E%80" class="internal alias">UFO란?</a></li>
+<li><a href="#ufo-format" class="internal alias">UFO Format</a></li>
+</ul>
+</li>
+<li><a href="#challenge-dataset" class="internal alias">Challenge Dataset</a></li>
+</ul>
+</li>
+<li><a href="#annotation-guide" class="internal alias">Annotation Guide</a>
+<ul>
+<li><a href="#%EC%A2%8B%EC%9D%80-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B%EC%9D%98-%EC%84%A0%EA%B2%B0%EC%A1%B0%EA%B1%B4-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8" class="internal alias">좋은 데이터셋의 선결조건, 가이드라인</a>
+<ul>
+<li><a href="#%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EC%9D%B4%EB%9E%80" class="internal alias">가이드라인이란?</a></li>
+<li><a href="#%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EC%A0%9C%EC%9E%91-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8" class="internal alias">학습 데이터셋 제작 파이프라인</a></li>
+</ul>
+</li>
+<li><a href="#general-ocr-dataset-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8-%EC%9E%91%EC%84%B1%EB%B2%95" class="internal alias">General OCR Dataset 예제로 알아보는 가이드라인 작성법</a>
+<ul>
+<li><a href="#%EA%B0%9C%EC%9A%94" class="internal alias">개요</a></li>
+<li><a href="#%EB%85%B8%ED%95%98%EC%9A%B0" class="internal alias">노하우</a></li>
+<li><a href="#%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8%EC%9C%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0" class="internal alias">가이드라인으로 데이터셋 구축하기</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%EC%84%B1%EB%8A%A5%ED%8F%89%EA%B0%80-%EA%B0%9C%EC%9A%94" class="internal alias">성능평가 개요</a>
+<ul>
+<li><a href="#%EC%84%B1%EB%8A%A5-%ED%8F%89%EA%B0%80%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1" class="internal alias">성능 평가의 중요성</a></li>
+<li><a href="#%EC%A0%95%EB%9F%89%ED%8F%89%EA%B0%80--%EC%A0%95%EC%84%B1%ED%8F%89%EA%B0%80" class="internal alias">정량평가 &amp; 정성평가</a></li>
+<li><a href="#%EA%B8%80%EC%9E%90-%EA%B2%80%EC%B6%9C-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80" class="internal alias">글자 검출 모델 평가</a></li>
+</ul>
+</li>
+<li><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1" class="internal alias">데이터의 중요성</a>
+<ul>
+<li><a href="#%EC%96%91%EC%A7%88%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%99%95%EB%B3%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" class="internal alias">양질의 데이터를 확보하는 방법</a></li>
+<li><a href="#%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-labeling-tool" class="internal alias">오픈소스 Labeling Tool</a></li>
+</ul>
+</li>
+<li><a href="#advanced-text-detection-models" class="internal alias">Advanced Text Detection Models</a>
+<ul>
+<li><a href="#dbnetreal-time-scne-text-detection-with-differentiable-binarization-aaai-2020" class="internal alias">DBNet(Real-Time Scne Text Detection with Differentiable Binarization, AAAI 2020)</a>
+<ul>
+<li><a href="#idea--adaptive-thresholding" class="internal alias">Idea : Adaptive thresholding</a></li>
+<li><a href="#strategy" class="internal alias">Strategy</a></li>
+<li><a href="#differentiable-binarization" class="internal alias">Differentiable Binarization</a></li>
+<li><a href="#loss" class="internal alias">Loss</a></li>
+</ul>
+</li>
+<li><a href="#mosta-multi-oriented-scene-text-detector-with-localization-refinement-cvpr-2021" class="internal alias">MOST(A Multi-Oriented Scene Text Detector with Localization Refinement, CVPR 2021)</a>
+<ul>
+<li><a href="#%EA%B8%B0%EC%A1%B4-east-%EB%AA%A8%EB%8D%B8%EC%9D%98-%ED%8A%B9%EC%A7%95" class="internal alias">기존 EAST 모델의 특징</a></li>
+</ul>
+</li>
+<li><a href="#textfusionnetscne-text-detection-with-richer-fused-features-ijcai-2020" class="internal alias">TextFusionNet(Scne Text Detection with Richer Fused Features, IJCAI 2020)</a>
+<ul>
+<li><a href="#pipeline" class="internal alias">Pipeline</a></li>
+<li><a href="#training" class="internal alias">Training</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bag-of-tricks" class="internal alias">Bag of Tricks</a>
+<ul>
+<li><a href="#synthetic-data" class="internal alias">Synthetic Data</a>
+<ul>
+<li><a href="#synthtext" class="internal alias">SynthText</a></li>
+<li><a href="#synthtext3d" class="internal alias">SynthText3D</a></li>
+<li><a href="#unrealtext" class="internal alias">UnrealText</a></li>
+<li><a href="#how-to-use" class="internal alias">How to Use</a></li>
+</ul>
+</li>
+<li><a href="#data-augmentation" class="internal alias">Data Augmentation</a>
+<ul>
+<li><a href="#geometric-transformation" class="internal alias">Geometric Transformation</a></li>
+<li><a href="#%EC%8B%A4%EC%A0%84" class="internal alias">실전</a></li>
+</ul>
+</li>
+<li><a href="#others" class="internal alias">Others</a>
+<ul>
+<li><a href="#large-scale-variation" class="internal alias">Large Scale Variation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="software-10-vs-software-20">Software 1.0 vs Software 2.0<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#software-10-vs-software-20" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="software-10딥러닝이-아닌-sw">Software 1.0(딥러닝이 아닌 SW)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#software-10딥러닝이-아닌-sw" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>문제 정의</li>
+<li>큰 문제를 작은 문제들의 집합으로 분해</li>
+<li>개별 문제 별로 알고리즘 설계</li>
+<li>솔루션들을 합쳐 하나의 시스템으로</li>
+</ol>
+<ul>
+<li>예시
+<ul>
+<li>TCP/IP Stack</li>
+<li>Android Stack</li>
+</ul>
+</li>
+</ul>
+<h2 id="object-detection-accuract-improvements">Object Detection Accuract Improvements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#object-detection-accuract-improvements" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>(SW 1.0)2008, DPM-v1 : mAP 21.0%</li>
+<li>(SW 1.0)2014, DPM-v5 : 33.7%</li>
+<li>(SW 2.0)2020, RCNN : 58.50%</li>
+</ul>
+<p>SW 2.0으로 바뀌면서 매우 빠른 발전 및 성능 향상이 이루어짐</p>
+<p>SW 1.0 → SW 2.0으로 변화하면서, 사람이 거의 개입하지 않게 바뀜</p>
+<h2 id="software-20">Software 2.0<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#software-20" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>뉴럴넷 구조에 의해 검색 영역이 정해짐</p>
+<p>따라서 SW 1.0은 사람이 고민하여 프로그램을 만든다면, SW 2.0은 AI 모델의 구조로 프로그램의 검색 범위를 한정하고, 데이터와 최적화 방법을 통해 최적의 프로그램을 찾는다</p>
+<h2 id="software-10--software-20">Software 1.0 + Software 2.0<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#software-10--software-20" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>전체 시스템은 SW 1.0으로 이루어저 있음</p>
+<p>여기서 AI는 그 중 일부만(모듈)을 SW 2.0으로 이루어짐</p>
+<hr/>
+<h1 id="lifecycle-of-an-ai-project">Lifecycle of an AI Project<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#lifecycle-of-an-ai-project" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="ai-research-vs-ai-production">AI Research VS AI Production<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ai-research-vs-ai-production" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>수업, 학교, 연구에는 정해진 데이터셋 및 평가 방식에서 더 좋은 모델을 찾는 일을 함</p>
+<h3 id="서비스향-ai-모델-개발-과정">서비스향 AI 모델 개발 과정<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#서비스향-ai-모델-개발-과정" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>
+<p>Project Setup</p>
+<p>모델 요구사항 확정(처리 시간, 목표 정확도, 목표 qps, Serving 방식, 장비 사양)</p>
+</li>
+<li>
+<p>Data Preparation</p>
+<p>데이터 셋 준비(종류, 수량, 정답)</p>
+</li>
+<li>
+<p>Model Training</p>
+<p>모델 학습 및 디버깅(데이터 관련 피드백, 요구사항 달성)</p>
+</li>
+<li>
+<p>Deploying</p>
+<p>설치 및 유지보수(성능 모니터링, 이슈 해결)</p>
+</li>
+</ol>
+<h2 id="production-process-of-ai-model">Production Process of AI Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#production-process-of-ai-model" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Data-Centric → 데이터만 수정하여 모델 성능 끌어올리기</p>
+<p>Model-Centric → 데이터는 고정시키고 모델 성능 끌어올리기</p>
+<ul>
+<li>모델 성능 달성에서 데이터와 모델의 비중은?
+<ul>
+<li>
+<p>첫 릴리즈 이전</p>
+<ul>
+<li>Data-Centric 50%</li>
+<li>Model-Centric 50%</li>
+</ul>
+</li>
+<li>
+<p>이미 사용 중인 모델의 성능 개선 시</p>
+<ul>
+<li>Data-Centric 80%</li>
+<li>Model-Centric 20%</li>
+</ul>
+<p>→ 서비스 출시 후 성능 개선 요구가 많음. 그러나 모델 구조 개선은 처리속도, qps, 메모리 크기 등에 대한 요구사항에 검증도 필요해서 비용이 크게 발생</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="data-data-data">Data! Data! Data!<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-data-data" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="data-related-tasks">Data-related tasks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-related-tasks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p>왜 데이터와 관련된 업무가 많을까?</p>
+<p>라벨링 결과에 대한 노이즈(작업의 일관되지 않은 정도)</p>
+<p>잘못 작업된 라벨링 결과를 학습 시, 무시하기 위해서는 적어도 깨끗이 라벨링된 결과가 2배 이상 필요</p>
+</li>
+<li>
+<p>자연스럽게 데이터를 모았을 때, 일반적인 샘플들은 작업자들이 자주 보기 때문에 라벨링 노이즈가 약하고 희귀한 샘플일 수록 라벨링 노이즈가 크다</p>
+</li>
+</ul>
+<h2 id="data-engine--flywheel">Data engine / Flywheel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-engine--flywheel" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>SW 2.0의 IDE는 무엇이 필요할까</p>
+<ol>
+<li>
+<p>데이터셋 시각화</p>
+<p>데이터, 라벨 분포 시각화, 라벨 시각화, 데이터 별 예측값 시각화, … etc</p>
+</li>
+<li>
+<p>데이터 라벨링</p>
+<p>라벨링 UI, 태스크 특화 기능, 라벨링 일관성 확인, 라벨링 작업 효율 확인, Auto 라벨링</p>
+</li>
+<li>
+<p>데이터셋 정제</p>
+<p>반복 데이터 제거, 라벨링 오류 수정</p>
+</li>
+<li>
+<p>데이터셋 선별</p>
+<p>모델의 성능개선을 위해서 어떤 데이터를 가져오고 라벨링해야 할까?</p>
+</li>
+</ol>
+<hr/>
+<h1 id="ocr-technology-and-service">OCR Technology and service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ocr-technology-and-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="ocr-technology">OCR Technology<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ocr-technology" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="ocr">OCR<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ocr" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>OCR : Optical Charactor Recognition</p>
+<p>Input Image → Text Detection → Text Recognition</p>
+<p>Recognizer는 Computer Vision과 NLP의 교집합 영역</p>
+<p>Input은 Image, Output은 Text</p>
+</li>
+<li>
+<p>STR : Scene Text Recognition</p>
+</li>
+</ul>
+<h3 id="text-detector">Text Detector<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-detector" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>글자 영역 다수 객체 검출 모델
+<ul>
+<li>이미지 입력에 글자 영역 위치들이 출력인 모델</li>
+<li>내부 내용과 상관 없이, 글자 영역인지 아닌지를 판단하기 때문에 단일 클래스 문제</li>
+</ul>
+</li>
+</ul>
+<h3 id="text-recognizer">Text Recognizer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-recognizer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>글자 영역 내 문자열 검출 모델
+<ul>
+<li>내부 문자열을 읽으므로 멀티 클래스 문제</li>
+</ul>
+</li>
+<li>CV와 NLP의 교집합 영역(Input : Image, Output : Text)</li>
+</ul>
+<h3 id="serializer">Serializer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#serializer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Recognizer를 사용해서 나온 결과(문자열)을 (사람이 읽는 순서로)정렬</li>
+<li>딥러닝으로 하는 경우도 있으나, 일반적으로 Rule-base로 알고리즘을 만든다</li>
+</ul>
+<h3 id="text-parser">Text Parser<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-parser" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>자연어 처리 모듈 중 가장 많이 사용되는 것은 기 정의된 key들에 대한 value 추출</p>
+<ul>
+<li>Ex : 명함을 OCR 했을 때, [Name] Key에 대한 Value, [Phone Number]에 대한 Value 추출</li>
+</ul>
+<ol>
+<li>
+<p>토큰화</p>
+<p>Ex : 해,리,포,터,보,러,가,자</p>
+</li>
+<li>
+<p>BIO(Begin / Inside / Outside) Tagging</p>
+<ol>
+<li>Begin : 관심 있는 개채의 시작</li>
+<li>Inside : 관심 있는 개채의 중간</li>
+<li>Outside : 상관 없는 요소</li>
+</ol>
+<p>Ex</p>
+<p>해(Begin-movie)</p>
+<p>리&amp;포&amp;터(Inside-movie)</p>
+<p>보&amp;러(Outside)</p>
+<p>메(Begin-movie)</p>
+<p>가&amp;박&amp;스(Inside-Threater)</p>
+<p>가&amp;자(Outside)</p>
+</li>
+</ol>
+<h2 id="ocr-services">OCR Services<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ocr-services" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="text-extractor">Text Extractor<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-extractor" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Copy &amp; Paste : 이미지의 글자를 OCR, 문자열로 Copy해서 Paste 할 수 있게 해줌</p>
+<h3 id="text-extractor--natural-language-processing">Text Extractor + Natural Language Processing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-extractor--natural-language-processing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Search : 사진의 OCR 결과를 가지고 있다면, 이미지 내 글자를 ‘검색’ 할 수 있음(ex: google photo)</p>
+<p>Matching : Music playlist capture → copy &amp; paste</p>
+<p>금칙어 처리</p>
+<p>번역</p>
+<h3 id="key-value-extractor">Key-Value Extractor<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-value-extractor" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>신용카드 인식 : [카드번호], [유효기간] Key에 대한 Value를 이미지에서 추출</p>
+<p>신분증 인식 : [이름], [주민번호] Key에 대한 Value를 이미지에서 추출</p>
+<hr/>
+<h1 id="introduce-of-text-detection">Introduce of Text Detection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introduce-of-text-detection" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="basics">Basics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basics" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="일반-객체-영역-검출-vs-글자-영역-검출">일반 객체 영역 검출 vs 글자 영역 검출<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#일반-객체-영역-검출-vs-글자-영역-검출" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>예측 정보의 차이</p>
+<ul>
+<li>
+<p>일반 객체 검출 : 클래스와 위치를 예측하는 문제</p>
+</li>
+<li>
+<p>글자 검출 : Text라는 단일 클래스 위치만을 예측하는 문제</p>
+</li>
+</ul>
+<p>객체의 특징</p>
+<ul>
+<li>매우 높은 밀도</li>
+<li>극단적 종횡비</li>
+<li>특이 모양(구겨짐, 휘어짐)</li>
+<li>모호한 객체 영역</li>
+<li>크기 편차</li>
+</ul>
+<h2 id="taxonomy">Taxonomy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#taxonomy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>SW 1.0 → SW 2.0의 과정에서 비약적인 발전이 있었음, 사람의 개입이 최소화됨</p>
+<h3 id="regression-based-vs-segmentation-based">Regression-based vs Segmentation-based<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#regression-based-vs-segmentation-based" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Regression-based : 이미지를 입력 받아 글자 영역 표현값들을 바로 출력</p>
+<ul>
+<li>
+<p>주로 사각형 형상의 글자에 잘 작동함 bbox 표현 방식의 한계</p>
+</li>
+<li>
+<p>Anchor box보다 더 큰 종횡비를 갖는 경우, 검출률 떨어짐</p>
+</li>
+</ul>
+<p>Segmentation-based : 이미지를 입력 받아 글자 영역 표현값들에 사용되는 화소 단위 정보를 뽑고, 후처리를 통해서 최종 글자 영역 표현 값들을 확보</p>
+<ul>
+<li>
+<p>복잡하고 시간이 오래걸리는 post-processing이 필요할 수 있음</p>
+</li>
+<li>
+<p>서로 간섭이 있거나 인접한 개체 간의 구분이 어려움</p>
+</li>
+</ul>
+<p>Hybrid(Regression + Segmentation) : Regression으로 대략적인 영역을 구하고, Segmentation으로 해당 영역에서의 화소 정보 추출</p>
+<h3 id="character-based-vs-word-based">Character-based vs Word-based<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#character-based-vs-word-based" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Character-based : Character 단위로 검출 및 조합하여 word instance를 예측</p>
+<ul>
+<li>Character-level GT 필요</li>
+</ul>
+<p>Word-based : Word 단위로 예측</p>
+<ul>
+<li>대부분의 모델이 해당</li>
+</ul>
+<h2 id="eastan-efficient-add-accurate-scene-text-detectorcvpr-2017">EAST(An Efficient add Accurate Scene Text Detector(CVPR 2017)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eastan-efficient-add-accurate-scene-text-detectorcvpr-2017" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>EAST: An Efficient and Accurate Scene Text Detector </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>Previous approaches for scene text detection have already achieved promising performances across various benchmarks.<br/>
+<a href="https://arxiv.org/abs/1704.03155" class="external">https://arxiv.org/abs/1704.03155<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<p>Idea</p>
+<ul>
+<li>네트워크가 2개의 정보를 Pixel-wise로 출력
+<ul>
+<li>Score Map : 글자 영역 중심에 해당하는지</li>
+<li>Geometry Map : Bounding Box의 위치는 어디인지</li>
+</ul>
+</li>
+</ul>
+<p>Pipeline</p>
+<p><img src="../../resources/Untitled-72.png" width="auto" height="auto" alt="Untitled 72.png"/></p>
+<ul>
+<li>
+<p>기존의 pipeline들과 비교했을 때, 매우 단순하다</p>
+</li>
+</ul>
+<p>Structure</p>
+<p><img src="../../resources/Untitled-1-53.png" width="auto" height="auto" alt="Untitled 1 53.png"/></p>
+<ul>
+<li>
+<p>UNet 구조로 되어있다</p>
+</li>
+</ul>
+<p>Locality-Aware NMS</p>
+<ul>
+<li>
+<p>기존의 NMS : 복잡도가 O(N^2)으로 Dense Prediction 상황에 부적합</p>
+</li>
+<li>
+<p>Idea : 인접한 픽셀에서 예측한 Bbox들은 같은 Text instance일 가능성이 높음</p>
+<ul>
+<li>
+<p>위치순서(행 우선) 탐색으로 비슷한 Bbox를 먼저 통합(IOU 기준)</p>
+</li>
+<li>
+<p>통합 시, Score Map 값으로 Weighted merge</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Loss Terms</p>
+<ul>
+<li>
+<p>Loss Function = Loss for score map + loss for geometry map</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+<p>Paper : Class balanced cross entropy</p>
+</li>
+</ul>
+<p><img src="../../resources/Untitled-2-37.png" width="auto" height="auto" alt="Untitled 2 37.png"/></p>
+<p>Realtime 까지는 아니어도, 초당 17장 처리 가능</p>
+<hr/>
+<h1 id="데이터-소개">데이터 소개<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#데이터-소개" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="data-collection">Data Collection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-collection" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="ocr-학습-및-평가-데이터는-어디에서-오는가">OCR 학습 및 평가 데이터는 어디에서 오는가?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ocr-학습-및-평가-데이터는-어디에서-오는가" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Public Dataset</p>
+<ul>
+<li>
+<p>라벨링된 실제 이미지를 손쉽게 확보 가능</p>
+</li>
+<li>
+<p>원하는 데이터가 없을 수 있다(이미지 도메인, 라벨링 방식 등)</p>
+</li>
+<li>
+<p>수량이 적다</p>
+</li>
+</ul>
+<p>Created Dataset</p>
+<ul>
+<li>Synthetic Image
+<ul>
+<li>라벨링 작업이 필요 없다</li>
+<li>원하는 데이터를 빠르게 확보 가능</li>
+<li>실제 데이터와 얼마나 다른지 확인 필요</li>
+</ul>
+</li>
+<li>Real Image
+<ul>
+<li>Crawled Image
+<ul>
+<li>빠르게 이미지를 모을 수 있다</li>
+<li>고화질 이미지 확보 가능</li>
+<li>다양한 샘플을 모으기 힘듬</li>
+<li>라이센스에 신경써야 함</li>
+</ul>
+</li>
+<li>Crowd-sourced Image
+<ul>
+<li>비용이 크고 시간이 오래 걸림</li>
+<li>원하는 고품질 데이터를 얻를 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="public-dataset">Public Dataset<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#public-dataset" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>서비스향 AI 모델 개발 시, 빠르게 답을 얻어야 하는 질문들</p>
+<ol>
+<li>
+<p>몇 장을 학습시키면 어느 정도 성능이 나오는가?</p>
+</li>
+<li>
+<p>어떤 경우가 일반적이고, 어떤 경우가 희귀 케이스인가?</p>
+</li>
+<li>
+<p>최신 모델의 한계는 무엇인가?</p>
+</li>
+</ol>
+<p>Dataset 얻기(OCR의 경우)</p>
+<ul>
+<li>대회
+<ul>
+<li>Kaggle OCR 관련 대회</li>
+<li>RRC(Robust Reading) : 2년마다 열리는 OCR 전문 대회</li>
+</ul>
+</li>
+<li>논문
+<ul>
+<li>OCR Dataset 논문</li>
+<li>Arixv(모든 ai 논문), cvpr, iccv, aaai, icdar(OCR 전문 학회)</li>
+</ul>
+</li>
+<li>전문 사이트
+<ul>
+<li>
+<p>Google Datasearch(데이터 전용 검색 플랫폼)</p>
+</li>
+<li>
+<p>Zenodo.org</p>
+</li>
+<li>
+<p>Datatang(데이터 유료 구매)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>OCR Data에 포함되는 것들</p>
+<p>Bbox</p>
+<p>Text</p>
+<p>don’t care area(학습시 사용 안함)</p>
+<p>Image File Name</p>
+<p>Image Width</p>
+<p>Image Height</p>
+<h3 id="icdar-15--incidental-scene-text-dataset">ICDAR 15 : Incidental Scene Text Dataset<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#icdar-15--incidental-scene-text-dataset" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>풍경 이미지 속에 우연히 글자가 잡힌 경우</p>
+<ul>
+<li>총 1500장의 이미지와 그에 해당하는 GT</li>
+<li>Care, don’t care로 구분하여 전사
+<ul>
+<li>care : 검출할 영역</li>
+<li>don’t care : 검출하지 않을 영역(육안상 알아보기 힘들거나 라틴문자가 아닌 글자)</li>
+</ul>
+</li>
+<li>x1,y1,x2,y2,x3,y3,x4,y4,transcription 형태로 이루어짐
+<ul>
+<li>don’t care의 경우 transcription : <a href="../.././../tags/" class="tag-link internal alias" data-slug="tags/index"></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="icdar-17--multi-lingual-scene-text-dataset">ICDAR 17 : Multi-Lingual Scene Text Dataset<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#icdar-17--multi-lingual-scene-text-dataset" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Multilingual
+<ul>
+<li>9가지 언어: Chinese, Japanese, Korean, English, French, Arabic, Italian, German and Indian</li>
+<li>6가지 문자: Arabic, Latin, Chinese, Japanese, Korean, Banla + Symbols, Mixed</li>
+</ul>
+</li>
+<li>총 18000장</li>
+<li>Train 9000(각 언어별 1000장), test 9000</li>
+<li>Focused Intentional Scene Text
+<ul>
+<li>우연히 찍힌 글자가 아닌, 글자 영역을 위주로 촬영된 이미지</li>
+<li>글거리 표지판, 광고판, 가게 간판, 지나가는 자동차 및 웹 microblog에 올라간 유저 사진 등</li>
+</ul>
+</li>
+<li>GT는 ICDAR 15와 유사</li>
+</ul>
+<h2 id="ufoupstage-format-for-ocr">UFO(Upstage Format for OCR)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ufoupstage-format-for-ocr" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="ufo란">UFO란?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ufo란" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>각각의 Public dataset의 파일 형식(json, txt, xml, csv 등)을 하나로 통합</p>
+<p>detector, recognizer, paser 등 서로 다른 모듈에서 모두 쉽게 사용할 수 있어야 함</p>
+<p>모델 개선을 위해 필요한 case에 대한 정보를 데이터에 포함 시킬 수 있음</p>
+<h3 id="ufo-format">UFO Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ufo-format" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>json 파일 안에서 element 탐색에 쉽도록 graph structure를 기반으로 만들었음</p>
+<h2 id="challenge-dataset">Challenge Dataset<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#challenge-dataset" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>public 150장 + private 150장</p>
+<ul>
+<li>데이터 source
+<ul>
+<li>네이버 및 구글에서 크롤링된 데이터 사용</li>
+<li>상업적 활용이 가능한 license</li>
+</ul>
+</li>
+<li>데이터 annotation 방식
+<ul>
+<li>UFO 포맷 사용</li>
+<li>Image, Word 레벨 정보만 Tagging 되어 있음</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h1 id="annotation-guide">Annotation Guide<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#annotation-guide" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="좋은-데이터셋의-선결조건-가이드라인">좋은 데이터셋의 선결조건, 가이드라인<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#좋은-데이터셋의-선결조건-가이드라인" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="가이드라인이란">가이드라인이란?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#가이드라인이란" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>가이드라인 : 좋은 데이터를 확보하기 위한 과정을 정리해 놓은 문서</p>
+<p>좋은 데이터 : 골고루 모여 있고, 일정하게 라벨링된 데이터</p>
+<p>일관성을 위해, 원하는 작업을 명확하게 언급하는 것이 좋다</p>
+<p>신경써야 할 세 가지 요소</p>
+<ul>
+<li>특이 케이스 : 가능한면 특이케이스를 다 고려한 가이드라인이 좋음</li>
+<li>단순함 : 장황하게 하지 말고, 단순하게 해야 함</li>
+<li>명확함 : 작업자 별로 해석이 달라지지 않도록 명확해야 함</li>
+</ul>
+<h3 id="학습-데이터셋-제작-파이프라인">학습 데이터셋 제작 파이프라인<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#학습-데이터셋-제작-파이프라인" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>데이터셋 제작 파이프라인</p>
+<ul>
+<li>서비스 요구 사항 → 제작 목적 설정 → 가이드 라인 제작 → Raw Image 수집 → 어노테이션(라벨링) → 모델링 → 성능 및 평가 분석
+<ul>
+<li>Raw Image 수집
+<ul>
+<li>Crawl Images(좋은 키워드 선정)
+<ul>
+<li>License 확인</li>
+<li>출처도 같이 크롤링</li>
+<li>되도록 큰 이미지 수집(나중에 얼마든지 줄일 수 있음)</li>
+</ul>
+</li>
+<li>Filter Images(필터링)
+<ul>
+<li>글자가 없는 이미지 필터링</li>
+<li>너무 작은 이미지 필터링</li>
+<li>중복 이미지 필터링</li>
+<li>디지털 이미지 필터링(실사가 아닌 이미지)</li>
+<li>배경이 투명인 경우 후처리</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-ocr-dataset-예제로-알아보는-가이드라인-작성법">General OCR Dataset 예제로 알아보는 가이드라인 작성법<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#general-ocr-dataset-예제로-알아보는-가이드라인-작성법" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="개요">개요<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#개요" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>가이드라인 제작 과정</p>
+<ul>
+<li>가이드 작성 → 가이드 교육 → 라벨링 → 라벨링 검수 → 데이터 검수 → 가이드 작성(업데이트)
+<ul>
+<li>라벨링 검수 : 라벨링 노이즈 관점에서의 검수</li>
+<li>데이터 검수 : 데이터 분포와 라벨링 노이즈 관점에서의 검수</li>
+</ul>
+</li>
+<li>초반에는 소수의 데이터를 가지고 라벨링하면서 커뮤니케이션 빈도수를 갖고 가이드라인의 틀을 어느정도 갖춘 뒤, 그 후 커뮤니케이션 빈도수를 낮추고 훈련에 사용하는 라벨 수를 높이는게 좋음</li>
+</ul>
+<h3 id="노하우">노하우<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#노하우" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>용어</th><th>설명</th></tr></thead><tbody><tr><td>HOLD</td><td>작업을 진행하지 않고, 이미지 전첼을 제외하는 처리</td></tr><tr><td>Points</td><td>글자 영역에 대한 표시 방법</td></tr><tr><td>Transcription</td><td>Points 안에 존재하는 글자 시퀸스</td></tr><tr><td>Illegibility</td><td>글자 번짐, 잘림 들으로 인해 글자를 정확히 알아보기 힘들 경우 모델이 의도적으로 무시하도록 표시  <br/>영역 단위의 처리로, Transcription 대상이 되는 Points처럼 타이트하게 영역을 지정할 필요는 없음</td></tr><tr><td>Image_Tags</td><td>이미지 자체에 특이사항이 있는 경우, 내용 표시</td></tr><tr><td>Word_Tags</td><td>글자 영역의 특이사항이 있는경우, 내용 표시</td></tr><tr><td><unk></unk></td><td>글자 영영 내에 글자가 있지만, 매우 특수하거나 실제로 인식하여 출력하기 어려운 글자의 경우 입력해주는 값  <br/>인식 대상이 아닌 글자(특수기호,한글, 알파벳이 아닌 글자)를 Transcription할 때 표시</td></tr></tbody></table></div>
+<h3 id="가이드라인으로-데이터셋-구축하기">가이드라인으로 데이터셋 구축하기<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#가이드라인으로-데이터셋-구축하기" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>라벨링이 잘 되고 있는지 검수하는 방법</p>
+<ol>
+<li>
+<p>감독자 전수 검사</p>
+<p>한 감독자가 본인에게 할당된 작업자의 결과물 모두 시각화하에 문제가 없는지 확인하고 문제가 있을 시에는, 문제 있는 부분을 기록하여 “다른” 작업자에게 살당</p>
+</li>
+<li>
+<p>Peer check</p>
+<p>끝난 작업물을 다른 작업자에게 할당하여 틀린 부분을 찾아서 고치게 함</p>
+</li>
+<li>
+<p>다수결</p>
+<p>여러 사람이 동일한 작업을 진행하고, 그 결과를 프로그래밍저긍로 하나로 합침</p>
+</li>
+</ol>
+<p>가이드 자체가 잘 동작하고 있는지를 검수</p>
+<ol>
+<li>
+<p>초기에 소량씩 완성본 받아서 품질을 확인</p>
+</li>
+<li>
+<p>작업자 QnA 활용</p>
+</li>
+<li>
+<p>추가 수정을 위한 비용과 시간이 크다면 어느정도 포기</p>
+</li>
+</ol>
+<p>가이드라인 만들기는 끝없는 의사소통과 수정의 연속</p>
+<ul>
+<li>
+<p>충분한 Tagging을 바탕으로 가이드 제작</p>
+</li>
+<li>
+<p>가이드라인 수정 시 Versioning 필요, 기존 내용과 충돌 없도록 최소한의 변경만 할 것</p>
+</li>
+<li>
+<p>최대한 명확하고 객관적인 표현을 사용</p>
+</li>
+<li>
+<p>일관성 있는 데이터가 가장 잘 만들어진 데이터</p>
+</li>
+<li>
+<p>우선순위를 알고, 필요하다면 포기하는 것도 중요</p>
+</li>
+</ul>
+<hr/>
+<h1 id="성능평가-개요">성능평가 개요<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#성능평가-개요" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="성능-평가의-중요성">성능 평가의 중요성<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#성능-평가의-중요성" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>성능평가 = 새로운(학습되지 않은) 데이터가 들어왔을 때 얼마나 잘 동작하는가?</p>
+<p>Train - Test로 Dataset을 분리함</p>
+<p>Train Set의 일부는 Validation으로 사용하기도 함</p>
+<ul>
+<li>그러나 Validation Set을 고정할 경우, 데이터 셋의 크기가 작으면 성능 평가의 신뢰성이 떨어지 게됨 만약 Validation Set을 어떻게 잡느냐에 따라 성능이 달라진다면, 우연의 효과로 인해 모델 평가 지표에 편향이 생겨버림
+<ul>
+<li>
+<p><a href="https://wooono.tistory.com/105" class="external">K-Fold Cross Validation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><img src="../../resources/Untitled-3-27.png" width="auto" height="auto" alt="Untitled 3 27.png"/></p>
+<ul>
+<li>TrainSet을 TrainSet + ValidationSet으로 나우기 위해 K개의 Fold로 나누고 아래와 같이 k번의 Cross-Validation을 수행</li>
+<li>K번 수행하므로, 총 K개의 성능 결과가 나오며, K의 평균을 학습 모델의 성능으로 본다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="정량평가--정성평가">정량평가 &amp; 정성평가<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#정량평가--정성평가" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>정량평가 : 모델의 성능을 알고리즘을 통해 수치적으로 표현</p>
+<p>정성평가 : 사람이 직접 수치적으로 평가(ex : bbox를 잘 맞춘 정도는? 0~1)</p>
+<p>→ 해당 모델이 서비스로 출시 되었을 때 사람들이 체감하는 품질의 정도</p>
+<h2 id="글자-검출-모델-평가">글자 검출 모델 평가<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#글자-검출-모델-평가" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>두 영역 간의 매칭 판단 방법(매칭 행렬 계산) + 매칭 행렬에서 유사도 수치 계산 방법(유사도 계산)이 정의되야 함</p>
+<ul>
+<li>
+<p>두 영역 간 매칭 판단(Task에 따라 선정해야 함)</p>
+<ul>
+<li>
+<p>One-to-One Match : GT Bbox 1개에 1개가 Bbox가 Predict 됨</p>
+</li>
+<li>
+<p>One-to-Many Match : GT Bbox 1개에 여러 개의 Bbox가 Predict 됨</p>
+</li>
+<li>
+<p>Many-to-One Match : 여러 GT Bbox를 1개의 Bbox가 Predict로 합쳐져서 Predict 됨</p>
+</li>
+<li>
+<p>ex : IOU, DetEval[<a href="https://liris.cnrs.fr/Documents/Liris-1824.pdf" class="external">link<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>], TIoU, CLEval</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th>One-to-One</th><th>One-to-Many</th><th>Many-to-One</th></tr></thead><tbody><tr><td>IoU</td><td>허용</td><td>허용</td><td>지양 (0.8로 Penalty)</td></tr><tr><td>DetEval</td><td>허용(IoU>0.5만 1)</td><td>지양 (0으로 Penalty)</td><td>지양 (0으로 Penalty)</td></tr></tbody></table></div>
+<ul>
+<li>
+<p>CLEval(Character-Level Evaluation)</p>
+<p>얼마나 많은 글자(Character)를 맞추고 틀렸는지로 평가</p>
+<p>Detection 뿐 아니라 end-to-end, recognition에 대해서도 평가 가능</p>
+<p><img src="../../resources/Untitled-4-19.png" width="auto" height="auto" alt="Untitled 4 19.png"/></p>
+<ul>
+<li>평가를 위해 Character 별 Center Position이 필요
+<ul>
+<li>
+<p>PCC(Pseudo Character Centers) 알고리즘으로 글자 수를 사용해서 획득, 꽤 정확하게 구할 수 있음</p>
+</li>
+<li>
+<p>정답영역 기준 Score : (CorrectNum - GranualPenalty) / TotalNum</p>
+<p>일종의 Recall로 볼 수 있음</p>
+<ul>
+<li>CorrectNum : 정답 영역 내 PCC 중 어느 예측 영역이라도 속하게 된 PCC의 개수</li>
+<li>GranualPenalty : 정답 영역 내 PCC를 포함하는 예측 영역의 개수 - 1</li>
+<li>TotalNum : 정답 영역 내 PCC 개수</li>
+</ul>
+</li>
+<li>
+<p>예측영역 기준 Score : (CorrectNum - GranualPenalty) / TotalNum</p>
+<p>일종의 Precision으로 볼 수 있음</p>
+<ul>
+<li>CorrectNum : 이 예측영역이 포함하고 있는 PCC 별로, 해당 PCC를 포함하는 예측 영역의 개수로 나눈 값들의 합</li>
+<li>GranualPenalty : 예측 영역과 연관된 정답 영역의 개수 - 1</li>
+<li>TotalNum : 이 예측 영역이 포함하고 있는 PCC의 개수</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>두 영역 간 유사도 판단</p>
+<p>ex : Area Recall, Area Precision</p>
+</li>
+</ul>
+<hr/>
+<h1 id="데이터의-중요성">데이터의 중요성<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#데이터의-중요성" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="양질의-데이터를-확보하는-방법">양질의 데이터를 확보하는 방법<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#양질의-데이터를-확보하는-방법" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>People
+<ul>
+<li>가이드 숙지력</li>
+<li>일관된 작업</li>
+<li>작업 효율성</li>
+<li>특이 케이스에 대한 대응력(태스크, 모델에 대한 이해가 있는 사람들은 처음 보는 경우도 거의 동일하게 작업)</li>
+</ul>
+</li>
+<li>Process
+<ul>
+<li>일관된 작업을 보장하기 위한 프로세스 정립</li>
+<li>작업마다 최적의 프로세스가 다를 수 있으므로 유연성도 필요</li>
+</ul>
+</li>
+<li>Tool
+<ul>
+<li>
+<p>작업 효율성을 올리기 위한 UX / 자동화 / 부가 기능</p>
+</li>
+<li>
+<p>커뮤니케이션 효율화를 위한 게시판, 댓글 기능</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="오픈소스-labeling-tool">오픈소스 Labeling Tool<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#오픈소스-labeling-tool" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>LabelMe
+<ul>
+<li>MIT CSAIL(Computer Science Artificial Intelligence Laboratory)에서 공개한 Image data annotation 도구를 참고하여 만든 오픈소스</li>
+<li>Polygon, Circle, Rectangle, Line, Point의 Annotation 수행 가능</li>
+<li>장점 : 설치의 편함(Python), 커스터마이징 쉬움</li>
+<li>단점 : 공동작업 불가, Object 및 Image에 대한 속성 부여 불가</li>
+</ul>
+</li>
+<li>CVAT(Computer Vision Annotation Tool)
+<ul>
+<li>Intel OpenVINO 팀에서 제작한 공개 CV 데이터 제작 도구</li>
+<li>Image Video 등 일반적인 CV Task에서 필요한 Annotation 기능을 모두 포함</li>
+<li>주로 Object Detection, Image Segmentation, Image Classification 등에 사용</li>
+<li>장점
+<ul>
+<li>다양한 Annotation 지원</li>
+<li>Automatic annotation</li>
+<li>온라인 사용 가능, 오픈소스이므로 on-premise로 사용도 가능</li>
+<li>Multi-user 기반 annotation 가능, assignee, reviewer 기능 제공</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>model inference가 느림(CPU)</li>
+<li>object, image에 대한 속성을 부여하기 까다로움</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hasty Labeling Tool
+<ul>
+<li>CVAT와 유사, 그러나 Annotation은 전체 솔루션의 일부</li>
+<li>데이터 제작 / 모델학습 / 서빙 / 모니터링까지 전체를 쉽게 할 수 있는 솔루션 제공</li>
+<li>장점
+<ul>
+<li>다양한 Annotation을 지원</li>
+<li>Semi-Automated Annotation 기능 지원</li>
+<li>Cloud Storage 활용 가능</li>
+<li>Multi-user 기반 annotation 가능, assignee, reviewer 기능 제공</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>
+<p>Free credit 소진 후에는 과금 필요</p>
+</li>
+<li>
+<p>Annotator가 수동으로 이미지마다 review, stats로 변경 필요</p>
+</li>
+<li>
+<p>Hasty 플랫폼에 강하게 연결되어 있어, Annotation 도구에 대한 커스터마이징 불가능</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Upstage Labeling Tool과 비교</p>
+<p><img src="../../resources/Untitled-5-15.png" width="auto" height="auto" alt="Untitled 5 15.png"/></p>
+<hr/>
+<h1 id="advanced-text-detection-models">Advanced Text Detection Models<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#advanced-text-detection-models" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="dbnetreal-time-scne-text-detection-with-differentiable-binarization-aaai-2020">DBNet(Real-Time Scne Text Detection with Differentiable Binarization, AAAI 2020)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dbnetreal-time-scne-text-detection-with-differentiable-binarization-aaai-2020" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Real-time Scene Text Detection with Differentiable Binarization </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>Recently, segmentation-based methods are quite popular in scene text detection, as the segmentation results can more accurately describe scene text of various shapes such as curve text.<br/>
+<a href="https://arxiv.org/abs/1911.08947" class="external">https://arxiv.org/abs/1911.08947<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<h3 id="idea--adaptive-thresholding">Idea : Adaptive thresholding<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#idea--adaptive-thresholding" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>→ 글자 영역 구분에 Threshold 값을 이미지 별로 모델이 일아서 정하도록 해보자</p>
+<p><img src="../../resources/Untitled-6-12.png" width="auto" height="auto" alt="Untitled 6 12.png"/></p>
+<h3 id="strategy">Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>글자 영역 경계 부분에서만 높은 임계치를 적용, 나머지 영역은 낮은 임계치를 적용</li>
+<li>글자영역은 경계부분을 제외한 영역으로 정의</li>
+</ul>
+<p><img src="../../resources/Untitled-7-8.png" width="auto" height="auto" alt="Untitled 7 8.png"/></p>
+<p>그러나 기존의 Threshold는 미분 불가능</p>
+<p>→ Differentiable Binarization 제안</p>
+<h3 id="differentiable-binarization">Differentiable Binarization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#differentiable-binarization" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0502em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.4184em;vertical-align:-0.5733em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0071em;"><span style="top:-3.0072em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5357em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:-0.1389em;margin-right:0.1em;"><span class="pstrut" style="height:2.6595em;"></span><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5092em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:-0.1389em;margin-right:0.1em;"><span class="pstrut" style="height:2.6595em;"></span><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5092em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5733em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 id="loss">Loss<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#loss" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../resources/Untitled-8-6.png" width="auto" height="auto" alt="Untitled 8 6.png"/></p>
+<ul>
+<li>BCE Loss
+<ul>
+<li>Segmentation map + Binarization ↔ GT Probability map</li>
+</ul>
+</li>
+<li>L1 Loss(Threshold Map ↔ GT Threshold Map
+<ul>
+<li>GT Probability Map에서 image processing을 사용하여 생성</li>
+</ul>
+</li>
+</ul>
+<h2 id="mosta-multi-oriented-scene-text-detector-with-localization-refinement-cvpr-2021">MOST(A Multi-Oriented Scene Text Detector with Localization Refinement, CVPR 2021)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mosta-multi-oriented-scene-text-detector-with-localization-refinement-cvpr-2021" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>MOST: A Multi-Oriented Scene Text Detector with Localization Refinement </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>Over the past few years, the field of scene text detection has progressed rapidly that modern text detectors are able to hunt text in various challenging scenarios.<br/>
+<a href="https://arxiv.org/abs/2104.01070" class="external">https://arxiv.org/abs/2104.01070<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<h3 id="기존-east-모델의-특징">기존 EAST 모델의 특징<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#기존-east-모델의-특징" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>단순하고 빠름</li>
+<li>Extreme aspect ratio sample에 대해 성능이 많이 떨어짐
+<ul>
+<li>
+<p>Receptive Field의 한계</p>
+</li>
+<li>
+<p>LA-NMS의 문제점</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Most : EAST의 보완된 버전</p>
+<p><img src="../../resources/Untitled-9-6.png" width="auto" height="auto" alt="Untitled 9 6.png"/></p>
+<ul>
+<li>
+<p>TFAM(Text Feature Aligned Module)을 추가 Receptive Field를 극복</p>
+<ul>
+<li>Deformable Convolution 사용</li>
+</ul>
+</li>
+<li>
+<p>PA-NMS(Position-Aware NMS) NMS에 필요한 글자 영역 내 화소들의 상대 위치 정보를 받아서, 검출 결과에 PA-NMS 적용</p>
+<p>겹치는 부분, 침범하는 부분 등 많은 문제에 대해서 성능 향상을 이룸</p>
+</li>
+</ul>
+<h2 id="textfusionnetscne-text-detection-with-richer-fused-features-ijcai-2020">TextFusionNet(Scne Text Detection with Richer Fused Features, IJCAI 2020)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#textfusionnetscne-text-detection-with-richer-fused-features-ijcai-2020" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Info</p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p><a href="https://www.ijcai.org/proceedings/2020/0072.pdf" class="external">https://www.ijcai.org/proceedings/2020/0072.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<h3 id="pipeline">Pipeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pipeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><img src="../../resources/Untitled-10-5.png" width="auto" height="auto" alt="Untitled 10 5.png"/></p>
+<p><img src="../../resources/Untitled-11-5.png" width="auto" height="auto" alt="Untitled 11 5.png"/></p>
+<ul>
+<li>
+<p>Semantic Segmentation Branch : 이미지 전체에서 글자 영역을 추출, Global Level Feature 획득</p>
+</li>
+<li>
+<p>Detection Branch : 글자 영역별로 Global / Word Level Feature를 활용, 글자영역 검출과 글자 위치 검출</p>
+</li>
+<li>
+<p>Mask Brahcn : Global / Word / Character Level Feature를 활용하여 글자영역 추출과 글자 추출</p>
+</li>
+</ul>
+<h3 id="training">Training<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#training" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Text Fusion의 Detection Branch 학습을 위해서는 글자 단위의 Labeling이 필요</p>
+<p>→ Weakly supervised learning 사용</p>
+<ol>
+<li>
+<p>SynthTest(Full-supervision) pretraining</p>
+<p>글자단위 label 확보가 가능한 합성 데이터로 먼저 학습</p>
+</li>
+<li>
+<p>Pseudo Labeling</p>
+<p>GT 단어영역 넓이에 비해 예측 영역과 GT 단여 영역 간의 IOU가 0.8 보다 큰 Pseudo Label만 학습에 사용</p>
+</li>
+<li>
+<p>Fine-tuning</p>
+</li>
+</ol>
+<hr/>
+<h1 id="bag-of-tricks">Bag of Tricks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bag-of-tricks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="synthetic-data">Synthetic Data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#synthetic-data" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>성능 향상에 있어서 가장 중요한 것은 Data</p>
+<p>그러나 Real Data를 확보하는 것은 어려운 일</p>
+<p>→ Real Data 확보 : Public Data 가져오기 + 직접 만들기</p>
+<p>직접 만들 경우, Annotation을 직접 만들어야 함</p>
+<p>→난이도가 높고, 비용이 많이 들어가는 작업</p>
+<p>Synthetic Data(합성 데이터) : Real Data 수집에 대한 부담을 덜어준다</p>
+<ul>
+<li>장점 : 비용이 훨씬 적게 든다</li>
+<li>개인정보나 라이센스에 관한 제약으로부터 자유롭다</li>
+<li>더 세밀한 수준의 annotation도 쉽게 얻을 수 있다(Character-level, pixel-level)</li>
+</ul>
+<h3 id="synthtext">SynthText<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#synthtext" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Synthetic Data for Text Localisation in Natural Images </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>In this paper we introduce a new method for text detection in natural images.<br/>
+<a href="https://arxiv.org/abs/1604.06646" class="external">https://arxiv.org/abs/1604.06646<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<p>Synthetic Data for Text Localisation in Natural Images, CVPR 2016 논문과 함께 데이터셋 발표</p>
+<p>800K Dataset + 글자 이미지 합성 코드 제공</p>
+<p>현실에 있을법한 위치에만, 표면 모양에 맞춰 글자를 합성</p>
+<p>→ Depth Estimation 수행</p>
+<h3 id="synthtext3d">SynthText3D<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#synthtext3d" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>SynthText3D: Synthesizing Scene Text Images from 3D Virtual Worlds </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>With the development of deep neural networks, the demand for a significant amount of annotated training data becomes the performance bottlenecks in many fields of research and applications.<br/>
+<a href="https://arxiv.org/abs/1907.06007" class="external">https://arxiv.org/abs/1907.06007<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<p>3D 가상 세계를 이용한 텍스트 이미지 합성</p>
+<p>이미 Geometry 정보를 갖고 있기 때문에 더 쉽게 합성 가능</p>
+<p>World 선택 → View Setting → Illumination Setting으로 다양한 Synthetic Image 생성 가능</p>
+<h3 id="unrealtext">UnrealText<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#unrealtext" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>UnrealText: Synthesizing Realistic Scene Text Images from the Unreal World </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>Synthetic data has been a critical tool for training scene text detection and recognition models.<br/>
+<a href="https://arxiv.org/abs/2003.10608" class="external">https://arxiv.org/abs/2003.10608<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<p>SynthText3D와 매우 유사, UnrealText는 기존 SynthText3D에서 View의 설정을 자동화</p>
+<ul>
+<li>기존 SynthText3D에서 사람이 직접 View를 생성한 이유는 현실에 존재할 수 없는 View가 생기는 것을 방지하기 위함</li>
+<li>UnrealText는 View 설정을 자동화 하면서도, 현실에 존재할법한 View를 생성</li>
+</ul>
+<p>Unreal Text는 존재할만한 View를 자동으로 생성</p>
+<p><img src="../../resources/Untitled-12-4.png" width="auto" height="auto" alt="Untitled 12 4.png"/></p>
+<h3 id="how-to-use">How to Use<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-to-use" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Pretraining
+<ul>
+<li>Target Dataset만 존재할 때
+<ol>
+<li>IamgeNet pretrained model로 부터 backbone load</li>
+<li>Taget dataset에 대해 fine-tuning 진행</li>
+</ol>
+</li>
+<li>합성 데이터가 주어졌을 때
+<ol>
+<li>ImageNet pretrained model로 부터 backbone load</li>
+<li>Synthetic Dataset으로 한번 더 pretraining</li>
+<li>Target dataset에 대해 fine-tuning 진행</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Weakliy Supervised Learning
+<ul>
+<li>Charactor-level detection을 수행하는 모델
+<ul>
+<li>CRAFT, TextFuseNet 등</li>
+<li>Real Dataset은 대부분 Word-level Annotation만 포함하기 때문에 Full supervision이 힘듬</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-augmentation">Data Augmentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#data-augmentation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="geometric-transformation">Geometric Transformation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#geometric-transformation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Augmentation이 모델의 False-Positive를 유발하지 않기 위한 Rule 예시</p>
+<ol>
+<li>Positive ratio 보장 : 최소 1개의 개체를 포함해야 한다
+<ol>
+<li>발생하는 문제 : 글자와 멀리 있는 배경에서는 hard negative sampling이 잘 되지 않는다</li>
+<li>시도해볼 수 있는 해결방법 : pretrained model이 false positive를 발생시키는 patch를 수집한다(=Hard negative mining)</li>
+</ol>
+</li>
+<li>개체 잘림 방지 : 잘리는 개체가 없어야 한다
+<ol>
+<li>발생하는 문제 : 글자들이 많이 밀집된 곳에서는 Sampling이 잘 되지 않는다</li>
+<li>시도해볼 수 있는 해결방법 : 최소 1개의 개체는 잘리지 않고 포함하게 한다, 잘린 것들은 Masking을 통해 학습에서 무시한다</li>
+</ol>
+</li>
+</ol>
+<h3 id="실전">실전<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#실전" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>도메인 특징에 따라 다양한 문제가 발생할 수 있음</p>
+<ul>
+<li>실제로 모델에 입력되는 이미지 관찰 필요</li>
+<li>Loss가 크게 발생하는 영역들을 분석해서 Rule을 업데이트하는 작업이 필요</li>
+</ul>
+<h2 id="others">Others<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#others" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="large-scale-variation">Large Scale Variation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#large-scale-variation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>이미지에서 글자는 매우 다양한 크기로 나타남</p>
+<p>Scale Variation은 난이도를 높이는 주요 원인</p>
+<p>작은 글자들 : Miss detection</p>
+<p>큰 글자들 : Broken / partial detection 발생</p>
+<p>SNIP : Scale Normalization for image Pyramid</p>
+<ul>
+<li>
+<p>Scale augmentation을 적용하나 개체의 크기가 적정 범위를 벗어나지 않도록 제한</p>
+</li>
+<li>
+<p>크기가 적정 범위를 벗어난 개체들에 대해서는 gradient 전파를 하지 않는 방식으로 학습에서 제외</p>
+</li>
+</ul>
+<p>Adaptive Scaling</p>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>It's All About The Scale -- Efficient Text Detection Using Adaptive Scaling </p></div>
+                  
+                </div>
+<div class="callout-content">
+<div class="callout-content-inner">
+<p>“Text can appear anywhere”.<br/>
+<a href="https://arxiv.org/abs/1907.12122" class="external">https://arxiv.org/abs/1907.12122<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</div>
+</div>
+</blockquote>
+<ul>
+<li>이미지에서 글자가 있을법한 영역만, 글자가 적정 크기로 나타나도록 조정해서 모델에 입력</li>
+</ul>
+<ol>
+<li>
+<p>글자의 위치와 크기를 대략적으로 예측</p>
+<ol>
+<li>Seg Mask 예측 : 글자가 있는 위치에 대한 Pixel wise map</li>
+<li>Scale Mask 예측 : 글자 Scale에 대한 Pixel wise map</li>
+</ol>
+</li>
+<li>
+<p>그 결과를 기반으로 재구성한 이미지를 다시 입력</p>
+<p><img src="../../resources/Untitled-13-4.png" width="auto" height="auto" alt="Untitled 13 4.png"/></p>
+<ol>
+<li>Canonical knapsacks을 생성(텍스트들만들 다시 짜집기하여 만든 새로운 이미지)</li>
+</ol>
+</li>
+<li>
+<p>Canonical knapsacks 이미지에서 예측 수행</p>
+<ol>
+<li>Canonical knapsacks 이미지는 적은 배경만을 갖기 때문에 매우 경제적</li>
+<li>글자들의 크기가 적정 크기로 통일되기 때문에 Scale Variation으로 인한 성능 저하가 없음</li>
+</ol>
+</li>
+</ol></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul class="toc-content overflow" id="list-1"><li class="depth-0"><a href="#software-10-vs-software-20" data-for="software-10-vs-software-20">Software 1.0 vs Software 2.0</a></li><li class="depth-1"><a href="#software-10딥러닝이-아닌-sw" data-for="software-10딥러닝이-아닌-sw">Software 1.0(딥러닝이 아닌 SW)</a></li><li class="depth-1"><a href="#object-detection-accuract-improvements" data-for="object-detection-accuract-improvements">Object Detection Accuract Improvements</a></li><li class="depth-1"><a href="#software-20" data-for="software-20">Software 2.0</a></li><li class="depth-1"><a href="#software-10--software-20" data-for="software-10--software-20">Software 1.0 + Software 2.0</a></li><li class="depth-0"><a href="#lifecycle-of-an-ai-project" data-for="lifecycle-of-an-ai-project">Lifecycle of an AI Project</a></li><li class="depth-1"><a href="#ai-research-vs-ai-production" data-for="ai-research-vs-ai-production">AI Research VS AI Production</a></li><li class="depth-2"><a href="#서비스향-ai-모델-개발-과정" data-for="서비스향-ai-모델-개발-과정">서비스향 AI 모델 개발 과정</a></li><li class="depth-1"><a href="#production-process-of-ai-model" data-for="production-process-of-ai-model">Production Process of AI Model</a></li><li class="depth-0"><a href="#data-data-data" data-for="data-data-data">Data! Data! Data!</a></li><li class="depth-1"><a href="#data-related-tasks" data-for="data-related-tasks">Data-related tasks</a></li><li class="depth-1"><a href="#data-engine--flywheel" data-for="data-engine--flywheel">Data engine / Flywheel</a></li><li class="depth-0"><a href="#ocr-technology-and-service" data-for="ocr-technology-and-service">OCR Technology and service</a></li><li class="depth-1"><a href="#ocr-technology" data-for="ocr-technology">OCR Technology</a></li><li class="depth-2"><a href="#ocr" data-for="ocr">OCR</a></li><li class="depth-2"><a href="#text-detector" data-for="text-detector">Text Detector</a></li><li class="depth-2"><a href="#text-recognizer" data-for="text-recognizer">Text Recognizer</a></li><li class="depth-2"><a href="#serializer" data-for="serializer">Serializer</a></li><li class="depth-2"><a href="#text-parser" data-for="text-parser">Text Parser</a></li><li class="depth-1"><a href="#ocr-services" data-for="ocr-services">OCR Services</a></li><li class="depth-2"><a href="#text-extractor" data-for="text-extractor">Text Extractor</a></li><li class="depth-2"><a href="#text-extractor--natural-language-processing" data-for="text-extractor--natural-language-processing">Text Extractor + Natural Language Processing</a></li><li class="depth-2"><a href="#key-value-extractor" data-for="key-value-extractor">Key-Value Extractor</a></li><li class="depth-0"><a href="#introduce-of-text-detection" data-for="introduce-of-text-detection">Introduce of Text Detection</a></li><li class="depth-1"><a href="#basics" data-for="basics">Basics</a></li><li class="depth-2"><a href="#일반-객체-영역-검출-vs-글자-영역-검출" data-for="일반-객체-영역-검출-vs-글자-영역-검출">일반 객체 영역 검출 vs 글자 영역 검출</a></li><li class="depth-1"><a href="#taxonomy" data-for="taxonomy">Taxonomy</a></li><li class="depth-2"><a href="#regression-based-vs-segmentation-based" data-for="regression-based-vs-segmentation-based">Regression-based vs Segmentation-based</a></li><li class="depth-2"><a href="#character-based-vs-word-based" data-for="character-based-vs-word-based">Character-based vs Word-based</a></li><li class="depth-1"><a href="#eastan-efficient-add-accurate-scene-text-detectorcvpr-2017" data-for="eastan-efficient-add-accurate-scene-text-detectorcvpr-2017">EAST(An Efficient add Accurate Scene Text Detector(CVPR 2017)</a></li><li class="depth-0"><a href="#데이터-소개" data-for="데이터-소개">데이터 소개</a></li><li class="depth-1"><a href="#data-collection" data-for="data-collection">Data Collection</a></li><li class="depth-2"><a href="#ocr-학습-및-평가-데이터는-어디에서-오는가" data-for="ocr-학습-및-평가-데이터는-어디에서-오는가">OCR 학습 및 평가 데이터는 어디에서 오는가?</a></li><li class="depth-1"><a href="#public-dataset" data-for="public-dataset">Public Dataset</a></li><li class="depth-2"><a href="#icdar-15--incidental-scene-text-dataset" data-for="icdar-15--incidental-scene-text-dataset">ICDAR 15 : Incidental Scene Text Dataset</a></li><li class="depth-2"><a href="#icdar-17--multi-lingual-scene-text-dataset" data-for="icdar-17--multi-lingual-scene-text-dataset">ICDAR 17 : Multi-Lingual Scene Text Dataset</a></li><li class="depth-1"><a href="#ufoupstage-format-for-ocr" data-for="ufoupstage-format-for-ocr">UFO(Upstage Format for OCR)</a></li><li class="depth-2"><a href="#ufo란" data-for="ufo란">UFO란?</a></li><li class="depth-2"><a href="#ufo-format" data-for="ufo-format">UFO Format</a></li><li class="depth-1"><a href="#challenge-dataset" data-for="challenge-dataset">Challenge Dataset</a></li><li class="depth-0"><a href="#annotation-guide" data-for="annotation-guide">Annotation Guide</a></li><li class="depth-1"><a href="#좋은-데이터셋의-선결조건-가이드라인" data-for="좋은-데이터셋의-선결조건-가이드라인">좋은 데이터셋의 선결조건, 가이드라인</a></li><li class="depth-2"><a href="#가이드라인이란" data-for="가이드라인이란">가이드라인이란?</a></li><li class="depth-2"><a href="#학습-데이터셋-제작-파이프라인" data-for="학습-데이터셋-제작-파이프라인">학습 데이터셋 제작 파이프라인</a></li><li class="depth-1"><a href="#general-ocr-dataset-예제로-알아보는-가이드라인-작성법" data-for="general-ocr-dataset-예제로-알아보는-가이드라인-작성법">General OCR Dataset 예제로 알아보는 가이드라인 작성법</a></li><li class="depth-2"><a href="#개요" data-for="개요">개요</a></li><li class="depth-2"><a href="#노하우" data-for="노하우">노하우</a></li><li class="depth-2"><a href="#가이드라인으로-데이터셋-구축하기" data-for="가이드라인으로-데이터셋-구축하기">가이드라인으로 데이터셋 구축하기</a></li><li class="depth-0"><a href="#성능평가-개요" data-for="성능평가-개요">성능평가 개요</a></li><li class="depth-1"><a href="#성능-평가의-중요성" data-for="성능-평가의-중요성">성능 평가의 중요성</a></li><li class="depth-1"><a href="#정량평가--정성평가" data-for="정량평가--정성평가">정량평가 &amp; 정성평가</a></li><li class="depth-1"><a href="#글자-검출-모델-평가" data-for="글자-검출-모델-평가">글자 검출 모델 평가</a></li><li class="depth-0"><a href="#데이터의-중요성" data-for="데이터의-중요성">데이터의 중요성</a></li><li class="depth-1"><a href="#양질의-데이터를-확보하는-방법" data-for="양질의-데이터를-확보하는-방법">양질의 데이터를 확보하는 방법</a></li><li class="depth-1"><a href="#오픈소스-labeling-tool" data-for="오픈소스-labeling-tool">오픈소스 Labeling Tool</a></li><li class="depth-0"><a href="#advanced-text-detection-models" data-for="advanced-text-detection-models">Advanced Text Detection Models</a></li><li class="depth-1"><a href="#dbnetreal-time-scne-text-detection-with-differentiable-binarization-aaai-2020" data-for="dbnetreal-time-scne-text-detection-with-differentiable-binarization-aaai-2020">DBNet(Real-Time Scne Text Detection with Differentiable Binarization, AAAI 2020)</a></li><li class="depth-2"><a href="#idea--adaptive-thresholding" data-for="idea--adaptive-thresholding">Idea : Adaptive thresholding</a></li><li class="depth-2"><a href="#strategy" data-for="strategy">Strategy</a></li><li class="depth-2"><a href="#differentiable-binarization" data-for="differentiable-binarization">Differentiable Binarization</a></li><li class="depth-2"><a href="#loss" data-for="loss">Loss</a></li><li class="depth-1"><a href="#mosta-multi-oriented-scene-text-detector-with-localization-refinement-cvpr-2021" data-for="mosta-multi-oriented-scene-text-detector-with-localization-refinement-cvpr-2021">MOST(A Multi-Oriented Scene Text Detector with Localization Refinement, CVPR 2021)</a></li><li class="depth-2"><a href="#기존-east-모델의-특징" data-for="기존-east-모델의-특징">기존 EAST 모델의 특징</a></li><li class="depth-1"><a href="#textfusionnetscne-text-detection-with-richer-fused-features-ijcai-2020" data-for="textfusionnetscne-text-detection-with-richer-fused-features-ijcai-2020">TextFusionNet(Scne Text Detection with Richer Fused Features, IJCAI 2020)</a></li><li class="depth-2"><a href="#pipeline" data-for="pipeline">Pipeline</a></li><li class="depth-2"><a href="#training" data-for="training">Training</a></li><li class="depth-0"><a href="#bag-of-tricks" data-for="bag-of-tricks">Bag of Tricks</a></li><li class="depth-1"><a href="#synthetic-data" data-for="synthetic-data">Synthetic Data</a></li><li class="depth-2"><a href="#synthtext" data-for="synthtext">SynthText</a></li><li class="depth-2"><a href="#synthtext3d" data-for="synthtext3d">SynthText3D</a></li><li class="depth-2"><a href="#unrealtext" data-for="unrealtext">UnrealText</a></li><li class="depth-2"><a href="#how-to-use" data-for="how-to-use">How to Use</a></li><li class="depth-1"><a href="#data-augmentation" data-for="data-augmentation">Data Augmentation</a></li><li class="depth-2"><a href="#geometric-transformation" data-for="geometric-transformation">Geometric Transformation</a></li><li class="depth-2"><a href="#실전" data-for="실전">실전</a></li><li class="depth-1"><a href="#others" data-for="others">Others</a></li><li class="depth-2"><a href="#large-scale-variation" data-for="large-scale-variation">Large Scale Variation</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-2" class="overflow"><li><a href="../../Personal/Naver-Connect---Boostcamp-AI-Tech-4기/Naver-Connect---Boostcamp-AI-Tech-4기" class="internal">Naver Connect - Boostcamp AI Tech 4기</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.1</a> © 2025</p><ul><li><a href="https://github.com/404Vector/404Vector">GitHub</a></li></ul></footer></div></div></body><script type="application/javascript">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module">function f(i,e){if(!i)return;function r(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function t(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}i?.addEventListener("click",r),window.addCleanup(()=>i?.removeEventListener("click",r)),document.addEventListener("keydown",t),window.addCleanup(()=>document.removeEventListener("keydown",t))}function y(i){for(;i.firstChild;)i.removeChild(i.firstChild)}var h=class{constructor(e,r){this.container=e;this.content=r;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),r=this.onMouseMove.bind(this),t=this.onMouseUp.bind(this),o=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",r),document.addEventListener("mouseup",t),window.addEventListener("resize",o),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",r),()=>document.removeEventListener("mouseup",t),()=>window.removeEventListener("resize",o))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let r=this.createButton("+",()=>this.zoom(.1)),t=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(t),e.appendChild(o),e.appendChild(r),this.container.appendChild(e)}createButton(e,r){let t=document.createElement("button");return t.textContent=e,t.className="mermaid-control-button",t.addEventListener("click",r),window.addCleanup(()=>t.removeEventListener("click",r)),t}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}zoom(e){let r=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),t=this.content.getBoundingClientRect(),o=t.width/2,n=t.height/2,c=r-this.scale;this.currentPan.x-=o*c,this.currentPan.y-=n*c,this.scale=r,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){this.scale=1;let e=this.content.querySelector("svg");this.currentPan={x:e.getBoundingClientRect().width/2,y:e.getBoundingClientRect().height/2},this.updateTransform()}},C=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],E;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;E||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let r=E.default,t=new WeakMap;for(let n of e)t.set(n,n.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let a=t.get(s);a&&(s.innerHTML=a)}let n=C.reduce((s,a)=>(s[a]=window.getComputedStyle(document.documentElement).getPropertyValue(a),s),{}),c=document.documentElement.getAttribute("saved-theme")==="dark";r.initialize({startOnLoad:!1,securityLevel:"loose",theme:c?"dark":"base",themeVariables:{fontFamily:n["--codeFont"],primaryColor:n["--light"],primaryTextColor:n["--darkgray"],primaryBorderColor:n["--tertiary"],lineColor:n["--darkgray"],secondaryColor:n["--secondary"],tertiaryColor:n["--tertiary"],clusterBkg:n["--light"],edgeLabelBackground:n["--highlight"]}}),await r.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let n=0;n<e.length;n++){let v=function(){let g=l.querySelector("#mermaid-space"),m=l.querySelector(".mermaid-content");if(!m)return;y(m);let w=c.querySelector("svg").cloneNode(!0);m.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new h(g,m)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},c=e[n],s=c.parentElement,a=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(a),L=a.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),f(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>
