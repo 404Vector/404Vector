@@ -6,65 +6,65 @@
       <description>Last 10 notes on HyeongSeok Kim&#039;s Vault</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>제 2차 커피드백 - 서로의 글 피드백 하기</title>
-    <link>https://quartz.jzhao.xyz/Personal/%EA%B8%80%EB%98%90-8%EA%B8%B0/%EC%A0%9C-2%EC%B0%A8-%EC%BB%A4%ED%94%BC%EB%93%9C%EB%B0%B1---%EC%84%9C%EB%A1%9C%EC%9D%98-%EA%B8%80-%ED%94%BC%EB%93%9C%EB%B0%B1-%ED%95%98%EA%B8%B0</link>
-    <guid>https://quartz.jzhao.xyz/Personal/%EA%B8%80%EB%98%90-8%EA%B8%B0/%EC%A0%9C-2%EC%B0%A8-%EC%BB%A4%ED%94%BC%EB%93%9C%EB%B0%B1---%EC%84%9C%EB%A1%9C%EC%9D%98-%EA%B8%80-%ED%94%BC%EB%93%9C%EB%B0%B1-%ED%95%98%EA%B8%B0</guid>
-    <description> 글또 피드백 가이드라인 글의 흐름은 자연스러운가? 아무것도 모르는 독자가 읽어도 쉽게 이해되는가? 맞춤법 혹은 띄어쓰기 오류가 있는가? 더 궁금한 내용이 있는가? 더 추가하면 좋을 내용이 있는가? 레이아웃에 대한 이야기(여백이 있으면 좋을 것 같아요, 너무 빽빽해요) 적절하게 이미지를 활용했는지 정연님 WASABI(curieuxjy.github.io/posts/paper/2023-03-12-wasabi.html) 글에 대한 전개가 잘 이해가 안되는 부분이 있었는지(해당 분야의 연구자가 아닐때 느끼는 난이도 등) → 우선 저는 강화...</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
+    <title>데이터 제작 프로젝트 - Wrapup Report</title>
+    <link>https://quartz.jzhao.xyz/Project/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%9C%EC%9E%91-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8---Wrapup-Report</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%9C%EC%9E%91-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8---Wrapup-Report</guid>
+    <description> 프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 환경 2. 대회 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 셋 분석 2. 데이터 셋 적용 3. N times Pre-Trained 4.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>마스크 착용 상태 분류 - WrapUp Report</title>
+    <link>https://quartz.jzhao.xyz/Project/%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98---WrapUp-Report</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98---WrapUp-Report</guid>
+    <description></description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>마스크, 성별, 나이 분류기</title>
+    <link>https://quartz.jzhao.xyz/Project/%EB%A7%88%EC%8A%A4%ED%81%AC,-%EC%84%B1%EB%B3%84,-%EB%82%98%EC%9D%B4-%EB%B6%84%EB%A5%98%EA%B8%B0</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EB%A7%88%EC%8A%A4%ED%81%AC,-%EC%84%B1%EB%B3%84,-%EB%82%98%EC%9D%B4-%EB%B6%84%EB%A5%98%EA%B8%B0</guid>
+    <description> GitHub - 404Vector/App.Streamlit.Mask-Gender-Age.Classifier: ViT 기반 Mask, Gender, Age 예측 WebService Repos pip install -r requirements.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>재활용 품목 분류를 위한 Object Detection - Wrapup Report</title>
+    <link>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection---Wrapup-Report</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection---Wrapup-Report</guid>
+    <description> 프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 방식 2. 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. 데이터 분석 2. 모델 탐색 3. Image Size 4.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>재활용 품목 분류를 위한 Object Detection - 개인 실험 일지</title>
+    <link>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection---%EA%B0%9C%EC%9D%B8-%EC%8B%A4%ED%97%98-%EC%9D%BC%EC%A7%80</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection---%EA%B0%9C%EC%9D%B8-%EC%8B%A4%ED%97%98-%EC%9D%BC%EC%A7%80</guid>
+    <description> 대회개요 소개 평가방법 세부 일정 대회 룰 학습데이터 평가데이터 베이스라인 코드 및 제출방법 EDA Raw Image Size Analysis Category Histogram Analysis RGB Component Analysis by Category Annotation per Image Analysis Size Analysis by Category Model 탐색 Data Refine Drop small annotations 대회개요 소개 바야흐로 대량 생산, 대량 소비의 시대.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>재활용 품목 분류를 위한 Semantic Segmentation - Wrapup Report</title>
+    <link>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation---Wrapup-Report</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation---Wrapup-Report</guid>
+    <description> 프로젝트 개요 설명 평가 프로젝트 팀 구성 및 역할 프로젝트 수행 절차 및 방법 1. 협업 환경 2. 대회 접근 전략 3. 수행 과정 프로젝트 수행 결과 1. Data EDA 2. Model Search 3. Train 4. Inference 5.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>초보 운전자를 위한 안전 주행 보조 시스템</title>
+    <link>https://quartz.jzhao.xyz/Project/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</link>
+    <guid>https://quartz.jzhao.xyz/Project/%EC%B4%88%EB%B3%B4-%EC%9A%B4%EC%A0%84%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%95%88%EC%A0%84-%EC%A3%BC%ED%96%89-%EB%B3%B4%EC%A1%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C</guid>
+    <description> GitHub - 404Vector/App.DrivingSafetyAssistanceSystem: Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 Monocular 3D Object Detection을 사용하여 초보 운전자가 혼자 도로를 주행할 때 끼어들기나 전방 차량과의 거리에 대한 위험을 알려주는 시스템 - GitHub - 404Vector/App.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>팀 프로젝트 개인 아이디어 정리 1</title>
+    <link>https://quartz.jzhao.xyz/Project/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9D%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%A0%95%EB%A6%AC-1</link>
+    <guid>https://quartz.jzhao.xyz/Project/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9D%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%A0%95%EB%A6%AC-1</guid>
+    <description> LEGO AI Renderer 개요 제공하려는 서비스 데이터의 취득 Pipeline LEGO AI Renderer 개요 LEGO는 남녀노소 즐길 수 있는 장난감이며, 많은 사람들이 어린 시절 LEGO 혹은 그 유사제품을 가지고 놀아본 경험이 있을 것이다.</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
+  </item><item>
+    <title>팀 프로젝트 개인 아이디어 정리 2</title>
+    <link>https://quartz.jzhao.xyz/Project/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9D%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%A0%95%EB%A6%AC-2</link>
+    <guid>https://quartz.jzhao.xyz/Project/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9D%B8-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EC%A0%95%EB%A6%AC-2</guid>
+    <description>Web상에서 획득할 수 있는 데이터는? 어떤 키워드에 대한 무작위 검색 정보 Web Crawling을 통한 이미지 획득 Web Crawling -이론 및 실습 파이썬을 활용한 웹 크롤링 여기서 시리즈로 시작해보자! velog.io/@changhtun1/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9B%B9-%ED%81%AC%EB%A1%A4%EB%A7%81 AI Painter[링크] 이미지 Colorization Image Colorization: A Su...</description>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
   </item><item>
     <title>DACON 예술작품 화가 분류 AI 경진대회</title>
     <link>https://quartz.jzhao.xyz/Project/DACON-%EC%98%88%EC%88%A0%EC%9E%91%ED%92%88-%ED%99%94%EA%B0%80-%EB%B6%84%EB%A5%98-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C</link>
     <guid>https://quartz.jzhao.xyz/Project/DACON-%EC%98%88%EC%88%A0%EC%9E%91%ED%92%88-%ED%99%94%EA%B0%80-%EB%B6%84%EB%A5%98-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C</guid>
     <description> GitHub - 404Vector/Competition.DACON.ArtWorksPainterClassification: Dacon 화가 이미지 분류 Dacon 예술 작품 화가 분류 AI 경진대회 model 폴더 .</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>NAVER Connect 마스크 착용 상태 분류</title>
-    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98</link>
-    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EB%A7%88%EC%8A%A4%ED%81%AC-%EC%B0%A9%EC%9A%A9-%EC%83%81%ED%83%9C-%EB%B6%84%EB%A5%98</guid>
-    <description> GitHub - 404Vector/Competition.AIStages.MaskWearingStatusClassification: 카메라로 촬영한 사람 얼굴 이미지의 마스크 착용 여부, 성별, 나이를 판단하는 Task AI Stages / Naver Boost Camp AI Tech 4th COVID-19의 확산으로 우리나라는 물론 전 세계 사람들은 경제적, 생산적인 활동에 많은 제약을 가지게 되었습니다.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>NAVER Connect 재활용 품목 분류를 위한 Object Detection</title>
-    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection</link>
-    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Object-Detection</guid>
-    <description> GitHub - 404Vector/Competition.AIStages.TrashObjectDetection: 사진에서 Object Detection을 사용하여 쓰레기 객체를 검출하고 분류하는 Task 환경 구성에 필요한 package 설치 mmcv 설치(pipenv로 직접설치 안됨) pipenv install pipenv run mim install mmcv-full [train] python train.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>NAVER Connect 재활용 품목 분류를 위한 Semantic Segmentation</title>
-    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation</link>
-    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%EC%9E%AC%ED%99%9C%EC%9A%A9-%ED%92%88%EB%AA%A9-%EB%B6%84%EB%A5%98%EB%A5%BC-%EC%9C%84%ED%95%9C-Semantic-Segmentation</guid>
-    <description> Info github.com/404Vector/Competition.AIStages.TrashSemanticSegmentation Team Member 요약 My Contribute Task Evaluation Metric Data 개요 본론 EDA Test 결론 ==이 대회는 비공개 대회이며, Bootcamp AI Tech 4기 교육의 일환으로 진행되었습니다.== Team Member 김형석 - [github.com/404Vector] 이동훈 - [github.com/teedihuni] 전지용 - [github.com/Jiyon...</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>NAVER Connect 학습 데이터 추가 및 수정을 통한 이미지 속 글자 검출 성능 개선</title>
-    <link>https://quartz.jzhao.xyz/Project/NAVER-Connect-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%86%8D-%EA%B8%80%EC%9E%90-%EA%B2%80%EC%B6%9C-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0</link>
-    <guid>https://quartz.jzhao.xyz/Project/NAVER-Connect-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B6%94%EA%B0%80-%EB%B0%8F-%EC%88%98%EC%A0%95%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%86%8D-%EA%B8%80%EC%9E%90-%EA%B2%80%EC%B6%9C-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0</guid>
-    <description> GitHub - 404Vector/Competition.AIStages.WordAreaDetection: 이미지에서 Object Detection을 사용하여 글자 영역을 검출하는 Task You can’t perform that action at this time.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>OpenEXR-Python</title>
-    <link>https://quartz.jzhao.xyz/Project/OpenEXR-Python</link>
-    <guid>https://quartz.jzhao.xyz/Project/OpenEXR-Python</guid>
-    <description>github.com/404Vector/OpenEXR-Python 개요 OpenEXR-Python은 Python 라이브러리로, C++ 기반의 OpenEXR 라이브러리에 대한 파이썬 바인딩을 제공합니다.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>Photometric Stereo를 사용한 형상추출 알고리즘 개발</title>
-    <link>https://quartz.jzhao.xyz/Project/Photometric-Stereo%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%98%95%EC%83%81%EC%B6%94%EC%B6%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%B0%9C</link>
-    <guid>https://quartz.jzhao.xyz/Project/Photometric-Stereo%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%ED%98%95%EC%83%81%EC%B6%94%EC%B6%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%B0%9C</guid>
-    <description> 개요 현상 / 이슈 문제 정의 해결방법 Photometric Stereo 알고리즘 구현 광학계의 구성 결과 알고리즘 구현 카메라 모듈과의 처리 결과 비교 Github 링크 기존에 진행했던 프로젝트를 완전히 잊어버리기 전에 기록으로 남기고 싶어서 글을 쓰게 되었습니다.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>Text Region 검출기</title>
-    <link>https://quartz.jzhao.xyz/Project/Text-Region-%EA%B2%80%EC%B6%9C%EA%B8%B0</link>
-    <guid>https://quartz.jzhao.xyz/Project/Text-Region-%EA%B2%80%EC%B6%9C%EA%B8%B0</guid>
-    <description> GitHub - 404Vector/App.Streamlit-FastAPI.Text.Detector: OCR Task 중 하나인 Text Detection을 수행하는 Web Service 저장소 입니다.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
-  </item><item>
-    <title>Video2Video</title>
-    <link>https://quartz.jzhao.xyz/Project/Video2Video</link>
-    <guid>https://quartz.jzhao.xyz/Project/Video2Video</guid>
-    <description>github.com/404Vector/Video2Video 개요 Video2Video는 FFMPeg와 FFMPeg-Python을 사용하여 비디오를 비디오로 변환하는 라이브러리입니다.</description>
-    <pubDate>Tue, 17 Jun 2025 03:24:24 GMT</pubDate>
+    <pubDate>Tue, 17 Jun 2025 06:09:04 GMT</pubDate>
   </item>
     </channel>
   </rss>
